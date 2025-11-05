@@ -14,15 +14,33 @@ const Index = () => {
     agreeToPolicy: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const subject = encodeURIComponent('Новая заявка с сайта Scalper.io');
-    const body = encodeURIComponent(
-      `Имя: ${formData.name}\n\nEmail: ${formData.email}\n\nСообщение:\n${formData.message}`
-    );
-    
-    window.location.href = `mailto:info@optunit.ru?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch('https://functions.poehali.dev/f7fe99b5-bce9-4bc5-bd19-f2df67d65ab8', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        alert('Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.');
+        setFormData({ name: '', email: '', message: '', agreeToPolicy: false });
+      } else {
+        alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+      }
+    } catch (error) {
+      alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+    }
   };
 
   const services = [
@@ -96,7 +114,7 @@ const Index = () => {
             <a href="#services" className="text-foreground/80 hover:text-primary transition-colors">Услуги</a>
             <a href="#tech" className="text-foreground/80 hover:text-primary transition-colors">Технологии</a>
             <a href="#team" className="text-foreground/80 hover:text-primary transition-colors">Команда</a>
-
+            <a href="/portfolio" className="text-foreground/80 hover:text-primary transition-colors">Портфолио</a>
             <a href="#faq" className="text-foreground/80 hover:text-primary transition-colors">FAQ</a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
           </div>
@@ -135,11 +153,14 @@ const Index = () => {
                 Начать проект
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 border-primary/30 hover:bg-primary/10" asChild>
-              <a href="mailto:info@optunit.ru">
-                <Icon name="Mail" className="mr-2" size={20} />
-                Обсудить задачу
-              </a>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-lg px-8 border-primary/30 hover:bg-primary/10"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <Icon name="Mail" className="mr-2" size={20} />
+              Обсудить задачу
             </Button>
           </div>
 
@@ -164,7 +185,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-6 border-t-4 border-primary/20">
+      <section id="services" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl">
         <div className="container mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
@@ -196,7 +217,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="tech" className="py-20 px-6 bg-gradient-to-b from-background to-card/30 border-t-4 border-primary/20">
+      <section id="tech" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl bg-card/20">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии</h2>
@@ -219,7 +240,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="team" className="py-20 px-6 bg-card/30 border-t-4 border-primary/20">
+      <section id="team" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl bg-card/10">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
@@ -247,7 +268,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-20 px-6 bg-card/30 border-t-4 border-primary/20">
+      <section id="faq" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl bg-card/20">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Часто задаваемые вопросы</h2>
@@ -344,7 +365,7 @@ const Index = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Сколько стоит разработка мобильного приложения?</h4>
-                  <p className="text-sm text-muted-foreground">MVP для одной платформы — от 800 тыс. рублей, для двух платформ (кросс-платформа) — от 1.2 млн. рублей. Точная оценка после детального брифа и проектирования.</p>
+                  <p className="text-sm text-muted-foreground">MVP для одной платформы — от 100 тыс. рублей, для двух платформ (кросс-платформа) — от 150 тыс. рублей. Точная оценка после детального брифа и проектирования.</p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Поддерживаете ли приложения после запуска?</h4>
@@ -356,7 +377,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-6">
+      <section id="contact" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
@@ -501,15 +522,7 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col md:flex-row gap-3 items-center text-muted-foreground text-sm">
-              <span>© 2024 ООО "ОПТИМЛАЙН"</span>
-              <span className="hidden md:block">•</span>
-              <a href="/privacy" className="hover:text-primary transition-colors">
-                Политика конфиденциальности
-              </a>
-            </div>
-            
+          <div className="pt-8 border-t border-border/50 flex justify-center">
             <div className="flex gap-6">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="Github" size={24} />

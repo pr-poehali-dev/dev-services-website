@@ -22,12 +22,10 @@ const BecomeClient = () => {
     agreeToPolicy: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const subject = encodeURIComponent('Анкета нового клиента - Scalper.io');
-    const body = encodeURIComponent(
-      `=== ИНФОРМАЦИЯ О КОМПАНИИ ===
+    const fullMessage = `=== ИНФОРМАЦИЯ О КОМПАНИИ ===
 Компания: ${formData.company}
 Сайт: ${formData.website}
 
@@ -46,10 +44,32 @@ Email: ${formData.email}
 ${formData.description}
 
 Основные вызовы:
-${formData.challenges}`
-    );
-    
-    window.location.href = `mailto:info@optunit.ru?subject=${subject}&body=${body}`;
+${formData.challenges}`;
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/f7fe99b5-bce9-4bc5-bd19-f2df67d65ab8', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${formData.name} (${formData.company})`,
+          email: formData.email,
+          message: fullMessage
+        })
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        alert('Спасибо! Ваша анкета успешно отправлена. Мы свяжемся с вами в течение 24 часов.');
+        window.location.href = '/';
+      } else {
+        alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+      }
+    } catch (error) {
+      alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+    }
   };
 
   return (
