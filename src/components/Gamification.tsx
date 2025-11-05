@@ -156,7 +156,7 @@ const Gamification = () => {
             </div>
           </div>
         );
-      })
+      })}
     </div>
   );
 };
