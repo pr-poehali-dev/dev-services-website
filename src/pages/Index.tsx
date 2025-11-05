@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -98,6 +98,32 @@ const Index = () => {
     { count: '10+', role: 'AI/ML инженеров', icon: 'BrainCircuit' }
   ];
 
+  const servicesRef = useRef<HTMLElement>(null);
+  const techRef = useRef<HTMLElement>(null);
+  const teamRef = useRef<HTMLElement>(null);
+  const faqRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-up');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const refs = [servicesRef, techRef, teamRef, faqRef, contactRef];
+    refs.forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <nav className="fixed w-full bg-background/80 backdrop-blur-lg border-b border-border z-50">
@@ -183,7 +209,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
+      <section ref={servicesRef} id="services" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Наши услуги</h2>
@@ -215,7 +241,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="tech" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
+      <section ref={techRef} id="tech" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии</h2>
@@ -238,7 +264,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="team" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
+      <section ref={teamRef} id="team" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
@@ -266,7 +292,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
+      <section ref={faqRef} id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Часто задаваемые вопросы</h2>
@@ -375,7 +401,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
+      <section ref={contactRef} id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
@@ -447,7 +473,7 @@ const Index = () => {
               </form>
               
               <div className="mt-8 pt-8 border-t border-border/50">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                       <Icon name="Mail" className="text-primary" size={20} />
@@ -476,13 +502,13 @@ const Index = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 sm:col-span-2">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                       <Icon name="Send" className="text-primary" size={20} />
                     </div>
                     <div className="min-w-0">
                       <div className="text-sm text-muted-foreground">Telegram</div>
-                      <div className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">
+                      <div className="font-medium">
                         <a href="https://t.me/Pyatyzhkin_Sergey" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                           @Pyatyzhkin_Sergey
                         </a>
