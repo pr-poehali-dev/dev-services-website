@@ -10,7 +10,7 @@ const Footer = () => {
           </div>
           
           <div className="pt-4 border-t border-border/30">
-            <p>© {new Date().getFullYear()} TechFlow. Все права защищены.</p>
+            <p>© {new Date().getFullYear()} Scalper.io. Все права защищены.</p>
           </div>
         </div>
       </div>
