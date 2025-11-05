@@ -192,6 +192,25 @@ const Partners = () => {
             </div>
           </div>
 
+          {/* Other partnerships */}
+          <div className="bg-card rounded-3xl p-10 md:p-12 border border-border mb-20">
+            <div className="flex items-start gap-6">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Icon name="Handshake" size={32} className="text-primary" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-3 text-foreground">
+                  Открыты к любым видам сотрудничества
+                </h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Указанные позиции — это наши приоритеты, но мы всегда готовы обсуждать другие форматы партнёрства. 
+                  Если у вас есть уникальные компетенции или интересные идеи сотрудничества — напишите нам. 
+                  Рассмотрим реферальные программы, совместные проекты, аутсорс команд и другие варианты.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* CTA */}
           <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-3xl p-12 md:p-16 text-center border border-primary/20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
@@ -201,17 +220,22 @@ const Partners = () => {
               Свяжитесь с нами, расскажите о своём опыте и предпочтениях. Мы обсудим формат, который будет выгоден обеим сторонам
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8" asChild>
-                <a href="https://t.me/scalperdotio">
-                  <Icon name="Send" size={20} className="mr-2" />
-                  Написать в Telegram
-                </a>
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-lg px-8"
+                onClick={() => window.open('https://t.me/scalperdotio', '_blank')}
+              >
+                <Icon name="Send" size={20} className="mr-2" />
+                Написать в Telegram
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8" asChild>
-                <a href="mailto:hello@scalper.io">
-                  <Icon name="Mail" size={20} className="mr-2" />
-                  Отправить email
-                </a>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg px-8"
+                onClick={() => window.location.href = 'mailto:hello@scalper.io'}
+              >
+                <Icon name="Mail" size={20} className="mr-2" />
+                Отправить email
               </Button>
             </div>
           </div>
