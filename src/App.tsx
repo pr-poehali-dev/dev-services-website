@@ -9,6 +9,7 @@ import Privacy from "./pages/webapp/Privacy";
 import BecomeClient from "./pages/webapp/BecomeClient";
 import Portfolio from "./pages/webapp/Portfolio";
 import NotFound from "./pages/NotFound";
+import Gamification from "./components/Gamification";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <Gamification />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

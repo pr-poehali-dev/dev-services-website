@@ -44,6 +44,48 @@ const technologies = [
   { name: 'Google Cloud', icon: 'Cloud' }
 ];
 
+const additionalTechnologies = [
+  { name: 'Java', icon: 'Coffee' },
+  { name: 'Spring Boot', icon: 'Leaf' },
+  { name: 'Kotlin', icon: 'Code' },
+  { name: 'Go', icon: 'Zap' },
+  { name: 'Rust', icon: 'Wrench' },
+  { name: 'C++', icon: 'Binary' },
+  { name: 'C#', icon: 'FileCode' },
+  { name: '.NET', icon: 'Grid3x3' },
+  { name: 'PHP', icon: 'Code2' },
+  { name: 'Laravel', icon: 'Box' },
+  { name: 'Ruby', icon: 'Gem' },
+  { name: 'Rails', icon: 'Train' },
+  { name: 'Swift', icon: 'Smartphone' },
+  { name: 'Flutter', icon: 'Smartphone' },
+  { name: 'React Native', icon: 'Smartphone' },
+  { name: 'Svelte', icon: 'Flame' },
+  { name: 'Nuxt.js', icon: 'Layers' },
+  { name: 'Gatsby', icon: 'Sparkles' },
+  { name: 'MySQL', icon: 'Database' },
+  { name: 'Oracle', icon: 'Database' },
+  { name: 'Cassandra', icon: 'Database' },
+  { name: 'SQLite', icon: 'Database' },
+  { name: 'Solidity', icon: 'Shield' },
+  { name: 'Web3.js', icon: 'Blocks' },
+  { name: 'Unity', icon: 'Gamepad2' },
+  { name: 'Unreal Engine', icon: 'Gamepad' },
+  { name: 'Selenium', icon: 'Bug' },
+  { name: 'Cypress', icon: 'CheckCircle' },
+  { name: 'Jest', icon: 'TestTube' },
+  { name: 'Playwright', icon: 'Theater' },
+  { name: 'WebRTC', icon: 'Video' },
+  { name: 'Socket.io', icon: 'Wifi' },
+  { name: 'gRPC', icon: 'Radio' },
+  { name: 'Tailwind CSS', icon: 'Palette' },
+  { name: 'Bootstrap', icon: 'Layout' },
+  { name: 'Material UI', icon: 'Layers' },
+  { name: 'Figma', icon: 'Pen' },
+  { name: 'Sketch', icon: 'PenTool' },
+  { name: 'Adobe XD', icon: 'Paintbrush' }
+];
+
 const TechnologiesSection = forwardRef<HTMLElement>((props, ref) => {
   return (
     <section ref={ref} id="tech" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 overflow-hidden">
@@ -85,6 +127,28 @@ const TechnologiesSection = forwardRef<HTMLElement>((props, ref) => {
                 {[...technologies, ...technologies].map((tech, index) => (
                   <div 
                     key={`reverse-${index}`}
+                    className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/50 hover:shadow-lg transition-all duration-300 min-w-[140px]"
+                  >
+                    <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Icon name={tech.icon as any} className="text-primary" size={28} />
+                    </div>
+                    <span className="text-sm font-medium text-center whitespace-nowrap">{tech.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+          </div>
+
+          {/* Третья рулетка - слева направо */}
+          <div className="relative">
+            <div className="flex overflow-hidden">
+              <div className="flex gap-6 animate-scroll">
+                {[...additionalTechnologies, ...additionalTechnologies].map((tech, index) => (
+                  <div 
+                    key={`additional-${index}`}
                     className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/50 hover:shadow-lg transition-all duration-300 min-w-[140px]"
                   >
                     <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
