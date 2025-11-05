@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -98,7 +98,31 @@ const Index = () => {
     { count: '10+', role: 'AI/ML инженеров', icon: 'BrainCircuit' }
   ];
 
+  const servicesRef = useRef<HTMLElement>(null);
+  const techRef = useRef<HTMLElement>(null);
+  const teamRef = useRef<HTMLElement>(null);
+  const faqRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const refs = [servicesRef, techRef, teamRef, faqRef, contactRef];
+    refs.forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -185,7 +209,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl">
+      <section ref={servicesRef} id="services" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Наши услуги</h2>
@@ -217,7 +241,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="tech" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl bg-card/20">
+      <section ref={techRef} id="tech" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии</h2>
@@ -240,7 +264,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="team" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl bg-card/10">
+      <section ref={teamRef} id="team" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
@@ -268,7 +292,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl bg-card/20">
+      <section ref={faqRef} id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Часто задаваемые вопросы</h2>
@@ -377,7 +401,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl">
+      <section ref={contactRef} id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
@@ -389,25 +413,27 @@ const Index = () => {
           <Card className="bg-card/80 backdrop-blur border-border/50">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Имя</label>
-                  <Input 
-                    placeholder="Ваше имя"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="bg-background/50"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <Input 
-                    type="email"
-                    placeholder="your@email.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="bg-background/50"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Имя</label>
+                    <Input 
+                      placeholder="Ваше имя"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      className="bg-background/50"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Email</label>
+                    <Input 
+                      type="email"
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      className="bg-background/50"
+                    />
+                  </div>
                 </div>
                 
                 <div>
