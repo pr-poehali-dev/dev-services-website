@@ -127,33 +127,39 @@ const Gamification = () => {
         const level = parseInt(animation.replace('level', ''));
         const emoji = getAnimationForLevel(level);
         
-        // 15 уникальных путей анимации
+        // 15 уникальных путей анимации с разными вертикальными позициями (в пикселях)
         const paths = [
-          { class: 'animate-path-1', style: 'top: 20%; left: 0;' },
-          { class: 'animate-path-2', style: 'top: 35%; left: 0;' },
-          { class: 'animate-path-3', style: 'top: 50%; left: 0;' },
-          { class: 'animate-path-4', style: 'top: 65%; left: 0;' },
-          { class: 'animate-path-5', style: 'top: 25%; left: 0;' },
-          { class: 'animate-path-6', style: 'top: 40%; left: 0;' },
-          { class: 'animate-path-7', style: 'top: 55%; left: 0;' },
-          { class: 'animate-path-8', style: 'top: 30%; left: 0;' },
-          { class: 'animate-path-9', style: 'top: 45%; left: 0;' },
-          { class: 'animate-path-10', style: 'top: 60%; left: 0;' },
-          { class: 'animate-path-11', style: 'top: 22%; left: 0;' },
-          { class: 'animate-path-12', style: 'top: 38%; left: 0;' },
-          { class: 'animate-path-13', style: 'top: 52%; left: 0;' },
-          { class: 'animate-path-14', style: 'top: 68%; left: 0;' },
-          { class: 'animate-path-15', style: 'top: 42%; left: 0;' },
+          { class: 'animate-path-1', top: 200 },
+          { class: 'animate-path-2', top: 300 },
+          { class: 'animate-path-3', top: 400 },
+          { class: 'animate-path-4', top: 500 },
+          { class: 'animate-path-5', top: 250 },
+          { class: 'animate-path-6', top: 350 },
+          { class: 'animate-path-7', top: 450 },
+          { class: 'animate-path-8', top: 280 },
+          { class: 'animate-path-9', top: 380 },
+          { class: 'animate-path-10', top: 480 },
+          { class: 'animate-path-11', top: 220 },
+          { class: 'animate-path-12', top: 320 },
+          { class: 'animate-path-13', top: 420 },
+          { class: 'animate-path-14', top: 520 },
+          { class: 'animate-path-15', top: 340 },
         ];
         
         const pathIndex = (level - 1) % paths.length;
         const path = paths[pathIndex];
         
         return (
-          <div key={animation} className="fixed w-full h-full pointer-events-none z-40 overflow-hidden" style={{ top: 0, left: 0 }}>
-            <div className={`${path.class} text-6xl absolute`} style={{ animationDelay: `${index * 1.5}s` }}>
-              {emoji}
-            </div>
+          <div 
+            key={animation} 
+            className={`${path.class} text-6xl fixed pointer-events-none z-40`}
+            style={{ 
+              top: `${path.top}px`,
+              left: 0,
+              animationDelay: `${index * 1.5}s`
+            }}
+          >
+            {emoji}
           </div>
         );
       })}
