@@ -7,12 +7,17 @@ const Gamification = () => {
   const [showReward, setShowReward] = useState(false);
   const [achievements, setAchievements] = useState<string[]>([]);
   const [clickCount, setClickCount] = useState(0);
+  const [animations, setAnimations] = useState<string[]>([]);
 
   useEffect(() => {
     const savedPoints = localStorage.getItem('userPoints');
     const savedAchievements = localStorage.getItem('userAchievements');
+    const savedClickCount = localStorage.getItem('clickCount');
+    const savedAnimations = localStorage.getItem('animations');
     if (savedPoints) setPoints(parseInt(savedPoints));
     if (savedAchievements) setAchievements(JSON.parse(savedAchievements));
+    if (savedClickCount) setClickCount(parseInt(savedClickCount));
+    if (savedAnimations) setAnimations(JSON.parse(savedAnimations));
   }, []);
 
   useEffect(() => {
@@ -22,6 +27,14 @@ const Gamification = () => {
   useEffect(() => {
     localStorage.setItem('userAchievements', JSON.stringify(achievements));
   }, [achievements]);
+
+  useEffect(() => {
+    localStorage.setItem('clickCount', clickCount.toString());
+  }, [clickCount]);
+
+  useEffect(() => {
+    localStorage.setItem('animations', JSON.stringify(animations));
+  }, [animations]);
 
   const handleClick = () => {
     const newClickCount = clickCount + 1;
@@ -34,9 +47,24 @@ const Gamification = () => {
       setAchievements([...achievements, 'explorer']);
       alert('🎉 Достижение разблокировано: Исследователь! Вы кликнули 5 раз!');
     }
+    if (newClickCount === 10 && !animations.includes('rocket')) {
+      setAnimations([...animations, 'rocket']);
+      setAchievements([...achievements, 'rocket10']);
+      alert('🚀 Вознаграждение: Летающая ракета разблокирована!');
+    }
     if (newClickCount === 20 && !achievements.includes('enthusiast')) {
       setAchievements([...achievements, 'enthusiast']);
       alert('🏆 Достижение разблокировано: Энтузиаст! Вы кликнули 20 раз!');
+    }
+    if (newClickCount === 50 && !animations.includes('car')) {
+      setAnimations([...animations, 'car']);
+      setAchievements([...achievements, 'car50']);
+      alert('🚗 Вознаграждение: Катающаяся машинка разблокирована!');
+    }
+    if (newClickCount === 100 && !animations.includes('plane')) {
+      setAnimations([...animations, 'plane']);
+      setAchievements([...achievements, 'plane100']);
+      alert('✈️ Вознаграждение: Летающий самолёт разблокирован!');
     }
   };
 
@@ -44,8 +72,11 @@ const Gamification = () => {
     setPoints(0);
     setAchievements([]);
     setClickCount(0);
+    setAnimations([]);
     localStorage.removeItem('userPoints');
     localStorage.removeItem('userAchievements');
+    localStorage.removeItem('clickCount');
+    localStorage.removeItem('animations');
   };
 
   return (
@@ -96,11 +127,51 @@ const Gamification = () => {
                     <Icon name="Star" size={16} className="text-primary" />
                   </div>
                 )}
+                {achievements.includes('rocket10') && (
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center" title="Ракета">
+                    <Icon name="Rocket" size={16} className="text-primary" />
+                  </div>
+                )}
+                {achievements.includes('car50') && (
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center" title="Машинка">
+                    <Icon name="Car" size={16} className="text-primary" />
+                  </div>
+                )}
+                {achievements.includes('plane100') && (
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center" title="Самолёт">
+                    <Icon name="Plane" size={16} className="text-primary" />
+                  </div>
+                )}
               </div>
             </div>
           )}
         </div>
       </div>
+
+      {/* Анимации-вознаграждения */}
+      {animations.includes('rocket') && (
+        <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-40 overflow-hidden">
+          <div className="animate-fly-diagonal text-6xl">
+            🚀
+          </div>
+        </div>
+      )}
+      
+      {animations.includes('car') && (
+        <div className="fixed bottom-0 left-0 w-full pointer-events-none z-40 overflow-hidden">
+          <div className="animate-drive text-6xl">
+            🚗
+          </div>
+        </div>
+      )}
+      
+      {animations.includes('plane') && (
+        <div className="fixed top-10 left-0 w-full pointer-events-none z-40 overflow-hidden">
+          <div className="animate-fly text-6xl">
+            ✈️
+          </div>
+        </div>
+      )}
     </div>
   );
 };

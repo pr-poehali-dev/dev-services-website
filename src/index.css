@@ -167,6 +167,45 @@
       transform: scale(1);
     }
   }
+
+  .animate-drive {
+    animation: drive 10s linear infinite;
+  }
+
+  @keyframes drive {
+    0% {
+      transform: translateX(-100px);
+    }
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+
+  .animate-fly {
+    animation: fly 15s linear infinite;
+  }
+
+  @keyframes fly {
+    0% {
+      transform: translateX(-100px);
+    }
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+
+  .animate-fly-diagonal {
+    animation: flyDiagonal 12s linear infinite;
+  }
+
+  @keyframes flyDiagonal {
+    0% {
+      transform: translate(-100px, 100vh);
+    }
+    100% {
+      transform: translate(100vw, -100px);
+    }
+  }
 }
 
 @layer utilities {
