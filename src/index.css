@@ -168,42 +168,239 @@
     }
   }
 
-  .animate-drive {
-    animation: drive 10s linear infinite;
+  /* 15 уникальных путей анимации - избегаем header (0-15%) и footer (85-100%) */
+  .animate-path-1 {
+    animation: path1 12s linear infinite;
   }
-
-  @keyframes drive {
+  @keyframes path1 {
     0% {
-      transform: translateX(-100px);
+      transform: translate(-100px, 0);
     }
     100% {
-      transform: translateX(100vw);
+      transform: translate(100vw, 0);
     }
   }
 
-  .animate-fly {
-    animation: fly 15s linear infinite;
+  .animate-path-2 {
+    animation: path2 14s ease-in-out infinite;
   }
-
-  @keyframes fly {
+  @keyframes path2 {
     0% {
-      transform: translateX(-100px);
+      transform: translate(-100px, 0);
+    }
+    50% {
+      transform: translate(50vw, -50px);
     }
     100% {
-      transform: translateX(100vw);
+      transform: translate(100vw, 0);
     }
   }
 
-  .animate-fly-diagonal {
-    animation: flyDiagonal 12s linear infinite;
+  .animate-path-3 {
+    animation: path3 13s linear infinite;
   }
-
-  @keyframes flyDiagonal {
+  @keyframes path3 {
     0% {
-      transform: translate(-100px, 100vh);
+      transform: translate(100vw, 0);
     }
     100% {
-      transform: translate(100vw, -100px);
+      transform: translate(-100px, 0);
+    }
+  }
+
+  .animate-path-4 {
+    animation: path4 15s ease-in-out infinite;
+  }
+  @keyframes path4 {
+    0% {
+      transform: translate(100vw, 0);
+    }
+    50% {
+      transform: translate(50vw, 50px);
+    }
+    100% {
+      transform: translate(-100px, 0);
+    }
+  }
+
+  .animate-path-5 {
+    animation: path5 16s linear infinite;
+  }
+  @keyframes path5 {
+    0% {
+      transform: translate(-100px, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate(100vw, 0) rotate(360deg);
+    }
+  }
+
+  .animate-path-6 {
+    animation: path6 11s ease-in-out infinite;
+  }
+  @keyframes path6 {
+    0%,
+    100% {
+      transform: translate(-100px, 0);
+    }
+    25% {
+      transform: translate(25vw, -40px);
+    }
+    75% {
+      transform: translate(75vw, 40px);
+    }
+    100% {
+      transform: translate(100vw, 0);
+    }
+  }
+
+  .animate-path-7 {
+    animation: path7 13s linear infinite;
+  }
+  @keyframes path7 {
+    0% {
+      transform: translate(50vw, -100px);
+    }
+    100% {
+      transform: translate(50vw, 100vh);
+    }
+  }
+
+  .animate-path-8 {
+    animation: path8 14s ease-in-out infinite;
+  }
+  @keyframes path8 {
+    0% {
+      transform: translate(-100px, 0) scale(0.5);
+    }
+    50% {
+      transform: translate(50vw, 0) scale(1.2);
+    }
+    100% {
+      transform: translate(100vw, 0) scale(0.5);
+    }
+  }
+
+  .animate-path-9 {
+    animation: path9 17s linear infinite;
+  }
+  @keyframes path9 {
+    0% {
+      transform: translate(-100px, 0);
+    }
+    33% {
+      transform: translate(30vw, -30px);
+    }
+    66% {
+      transform: translate(70vw, 30px);
+    }
+    100% {
+      transform: translate(100vw, 0);
+    }
+  }
+
+  .animate-path-10 {
+    animation: path10 12s ease-in-out infinite;
+  }
+  @keyframes path10 {
+    0% {
+      transform: translate(100vw, 0);
+    }
+    100% {
+      transform: translate(-100px, 0) rotate(-360deg);
+    }
+  }
+
+  .animate-path-11 {
+    animation: path11 15s linear infinite;
+  }
+  @keyframes path11 {
+    0%,
+    100% {
+      transform: translate(-100px, 0);
+    }
+    50% {
+      transform: translate(100vw, -60px);
+    }
+  }
+
+  .animate-path-12 {
+    animation: path12 13s ease-in infinite;
+  }
+  @keyframes path12 {
+    0% {
+      transform: translate(-100px, 0);
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(100vw, 0);
+      opacity: 0.3;
+    }
+  }
+
+  .animate-path-13 {
+    animation: path13 16s ease-out infinite;
+  }
+  @keyframes path13 {
+    0% {
+      transform: translate(100vw, 0) scale(1);
+    }
+    25% {
+      transform: translate(75vw, 20px) scale(0.8);
+    }
+    75% {
+      transform: translate(25vw, -20px) scale(1.1);
+    }
+    100% {
+      transform: translate(-100px, 0) scale(1);
+    }
+  }
+
+  .animate-path-14 {
+    animation: path14 14s linear infinite;
+  }
+  @keyframes path14 {
+    0% {
+      transform: translate(-100px, 0);
+    }
+    20% {
+      transform: translate(20vw, 25px);
+    }
+    40% {
+      transform: translate(40vw, -25px);
+    }
+    60% {
+      transform: translate(60vw, 25px);
+    }
+    80% {
+      transform: translate(80vw, -25px);
+    }
+    100% {
+      transform: translate(100vw, 0);
+    }
+  }
+
+  .animate-path-15 {
+    animation: path15 18s ease-in-out infinite;
+  }
+  @keyframes path15 {
+    0% {
+      transform: translate(-100px, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(25vw, -35px) rotate(90deg);
+    }
+    50% {
+      transform: translate(50vw, 0) rotate(180deg);
+    }
+    75% {
+      transform: translate(75vw, 35px) rotate(270deg);
+    }
+    100% {
+      transform: translate(100vw, 0) rotate(360deg);
     }
   }
 }

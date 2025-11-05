@@ -22,31 +22,14 @@ const Gamification = () => {
   }, []);
 
   useEffect(() => {
-    const savedPoints = localStorage.getItem('userPoints');
-    const savedAchievements = localStorage.getItem('userAchievements');
-    const savedClickCount = localStorage.getItem('clickCount');
-    const savedAnimations = localStorage.getItem('animations');
-    if (savedPoints) setPoints(parseInt(savedPoints));
-    if (savedAchievements) setAchievements(JSON.parse(savedAchievements));
-    if (savedClickCount) setClickCount(parseInt(savedClickCount));
-    if (savedAnimations) setAnimations(JSON.parse(savedAnimations));
+    // Не загружаем из localStorage - всё сбрасывается при перезагрузке
+    setPoints(0);
+    setAchievements([]);
+    setClickCount(0);
+    setAnimations([]);
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('userPoints', points.toString());
-  }, [points]);
-
-  useEffect(() => {
-    localStorage.setItem('userAchievements', JSON.stringify(achievements));
-  }, [achievements]);
-
-  useEffect(() => {
-    localStorage.setItem('clickCount', clickCount.toString());
-  }, [clickCount]);
-
-  useEffect(() => {
-    localStorage.setItem('animations', JSON.stringify(animations));
-  }, [animations]);
+  // Удалены useEffect для сохранения в localStorage
 
   const getAnimationForLevel = (level: number): string => {
     const emojis = ['🚀', '🚗', '✈️', '🚤', '🚁', '🚂', '🚜', '🏍️', '🚲', '⛵', '🚁', '🚟', '🚚', '🚑', '🚒'];
@@ -78,10 +61,6 @@ const Gamification = () => {
     setAchievements([]);
     setClickCount(0);
     setAnimations([]);
-    localStorage.removeItem('userPoints');
-    localStorage.removeItem('userAchievements');
-    localStorage.removeItem('clickCount');
-    localStorage.removeItem('animations');
   };
 
   if (!isDesktop) return null;
@@ -147,17 +126,37 @@ const Gamification = () => {
       {animations.map((animation, index) => {
         const level = parseInt(animation.replace('level', ''));
         const emoji = getAnimationForLevel(level);
-        const animationType = index % 3 === 0 ? 'animate-fly-diagonal' : index % 3 === 1 ? 'animate-drive' : 'animate-fly';
-        const position = index % 3 === 0 ? 'top-0' : index % 3 === 1 ? 'bottom-0' : 'top-10';
+        
+        // 15 уникальных путей анимации
+        const paths = [
+          { class: 'animate-path-1', style: 'top: 20%; left: 0;' },
+          { class: 'animate-path-2', style: 'top: 35%; left: 0;' },
+          { class: 'animate-path-3', style: 'top: 50%; left: 0;' },
+          { class: 'animate-path-4', style: 'top: 65%; left: 0;' },
+          { class: 'animate-path-5', style: 'top: 25%; left: 0;' },
+          { class: 'animate-path-6', style: 'top: 40%; left: 0;' },
+          { class: 'animate-path-7', style: 'top: 55%; left: 0;' },
+          { class: 'animate-path-8', style: 'top: 30%; left: 0;' },
+          { class: 'animate-path-9', style: 'top: 45%; left: 0;' },
+          { class: 'animate-path-10', style: 'top: 60%; left: 0;' },
+          { class: 'animate-path-11', style: 'top: 22%; left: 0;' },
+          { class: 'animate-path-12', style: 'top: 38%; left: 0;' },
+          { class: 'animate-path-13', style: 'top: 52%; left: 0;' },
+          { class: 'animate-path-14', style: 'top: 68%; left: 0;' },
+          { class: 'animate-path-15', style: 'top: 42%; left: 0;' },
+        ];
+        
+        const pathIndex = (level - 1) % paths.length;
+        const path = paths[pathIndex];
         
         return (
-          <div key={animation} className={`fixed ${position} left-0 w-full h-full pointer-events-none z-40 overflow-hidden`}>
-            <div className={`${animationType} text-6xl`} style={{ animationDelay: `${index * 2}s` }}>
+          <div key={animation} className="fixed w-full h-full pointer-events-none z-40 overflow-hidden" style={{ top: 0, left: 0 }}>
+            <div className={`${path.class} text-6xl absolute`} style={{ animationDelay: `${index * 1.5}s` }}>
               {emoji}
             </div>
           </div>
         );
-      })}
+      })
     </div>
   );
 };
