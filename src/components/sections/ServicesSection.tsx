@@ -97,10 +97,16 @@ const services = [
 ];
 
 const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
+  const [shuffledServices, setShuffledServices] = useState(services);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const itemsPerView = 3;
-  const totalSlides = Math.ceil(services.length / itemsPerView);
+  const totalSlides = Math.ceil(shuffledServices.length / itemsPerView);
+
+  useEffect(() => {
+    const shuffled = [...services].sort(() => Math.random() - 0.5);
+    setShuffledServices(shuffled);
+  }, []);
 
   useEffect(() => {
     if (!isAutoPlay) return;
@@ -117,7 +123,7 @@ const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
     setIsAutoPlay(false);
   };
 
-  const visibleServices = services.slice(
+  const visibleServices = shuffledServices.slice(
     currentIndex * itemsPerView,
     currentIndex * itemsPerView + itemsPerView
   );
