@@ -86,8 +86,8 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Icon name="Sparkles" className="text-primary" size={28} />
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              DevTeam
+            <span className="text-2xl font-bold text-foreground">
+              Scalper.io
             </span>
           </div>
           <div className="hidden md:flex gap-8">
@@ -95,6 +95,7 @@ const Index = () => {
             <a href="#tech" className="text-foreground/80 hover:text-primary transition-colors">Технологии</a>
             <a href="#team" className="text-foreground/80 hover:text-primary transition-colors">Команда</a>
             <a href="#clients" className="text-foreground/80 hover:text-primary transition-colors">Клиенты</a>
+            <a href="#faq" className="text-foreground/80 hover:text-primary transition-colors">FAQ</a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
           </div>
           <Button className="bg-primary hover:bg-primary/90">
@@ -113,7 +114,7 @@ const Index = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
             Разрабатываем будущее
             <br />
-            <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            <span className="text-primary">
               с помощью AI
             </span>
           </h1>
@@ -260,6 +261,113 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="faq" className="py-20 px-6 bg-card/30">
+        <div className="container mx-auto max-w-3xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Часто задаваемые вопросы</h2>
+            <p className="text-xl text-muted-foreground">
+              Ответили для вас на часто задаваемые вопросы
+            </p>
+          </div>
+          
+          <div className="space-y-4">
+            <div className="bg-card border border-border rounded-xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon name="MessageCircle" className="text-primary" size={24} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold mb-2">Какие бизнес-задачи лучше всего подходят для автоматизации с помощью ИИ-агентов?</h3>
+                  <p className="text-muted-foreground mb-3">Мы разделяем на два варианта бизнес-задач, которые ИИ может закрыть:</p>
+                  <div className="space-y-3 text-sm text-muted-foreground">
+                    <div>
+                      <strong className="text-foreground">Первый</strong> – заменить людей, которые делают регулярную однотипную работу, то есть оптимизировать процесс и сократить человеческие ресурсы за счет автоматизации. Например – решение для поддержки, квалификация лидов, онбординг, обработка заявок, первичный анализ данных и др.рутинные задачи.
+                    </div>
+                    <div>
+                      <strong className="text-foreground">Второй</strong> – начать использовать ИИ-агентов, где до этого человек не мог закрыть собой процесс — это уж абсолютно новое направление, которое создает возможность для появления "голубых океанов". Например – мгновенно создавать и тестировать маркетинговый контент повышая CTR оффера до предельного максимума, руками человека это делается целой командой и временными затратами кратно больше чем мгновенно.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon name="Clock" className="text-primary" size={24} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold mb-2">Каковы реальные сроки и этапы внедрения ИИ-решения?</h3>
+                  <p className="text-muted-foreground">
+                    Обычно пилот запускается за <strong className="text-foreground">3–4 недели</strong>, а масштабирование — ещё <strong className="text-foreground">2–4 недели</strong> в зависимости от интеграций и объёма закрываемых задач.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon name="BarChart3" className="text-primary" size={24} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold mb-2">Как измерять эффективность и экономический эффект от ИИ?</h3>
+                  <p className="text-muted-foreground mb-3">Фиксируем baseline (время/стоимость/конверсия) → запускаем пилот → сравниваем «до/после» по KPI:</p>
+                  <ul className="space-y-1 text-sm text-muted-foreground list-disc list-inside">
+                    <li>сокращение FTE, время обработки</li>
+                    <li>% автоматизации, uplift конверсии и экономия в ₽/$</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon name="DollarSign" className="text-primary" size={24} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold mb-2">Сколько стоит внедрение ИИ-агентов в ваш бизнес?</h3>
+                  <p className="text-muted-foreground mb-3">Мы работаем по двум моделям:</p>
+                  <div className="space-y-2 text-sm text-muted-foreground">
+                    <div>1. Фиксированная оплата на старте проекта где цена может начинаться от 300тр. за интеграцию одного ИИ-агента.</div>
+                    <div>2. Оплата по результату внедрения (revenue-share) – мы на старте определяем какую эффективность получим и после запуска берём 25-35% от сэкономленных или заработанных средств. Такой способ помогает снизить ваши риски на старте и мы с вами разделим финансовые результаты после внедрения ИИ в ваши бизнес процессы.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon name="Shield" className="text-primary" size={24} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold mb-2">Как обеспечить защиту данных и соблюдение нормативных требований при использовании ИИ?</h3>
+                  <p className="text-muted-foreground">
+                    Защита достигается сочетанием архитектурных решений (on-prem/Hybrid), шифрования, ограниченного доступа и процедур (data minimization, логирование, DLP). Мы проектируем решения с учётом регуляторики (GDPR, HIPAA и локальных требований).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon name="Server" className="text-primary" size={24} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold mb-2">Нужна ли мне отдельная ИТ-инфраструктура для запуска ИИ-агента?</h3>
+                  <p className="text-muted-foreground">
+                    Не всегда — можно начать с облачных решений (минимальные требования). Для строгих требований безопасности возможен hybrid или on-prem вариант.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="py-20 px-6">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-12">
@@ -313,7 +421,7 @@ const Index = () => {
                   />
                   <label htmlFor="privacy-policy" className="text-sm text-muted-foreground">
                     Я соглашаюсь с{' '}
-                    <a href="#" className="text-primary hover:underline">
+                    <a href="/privacy" className="text-primary hover:underline">
                       политикой конфиденциальности
                     </a>
                   </label>
@@ -337,7 +445,11 @@ const Index = () => {
                     </div>
                     <div>
                       <div className="text-sm text-muted-foreground">Email</div>
-                      <div className="font-medium">contact@devteam.ru</div>
+                      <div className="font-medium">
+                        <a href="mailto:info@scalper.io" className="hover:text-primary transition-colors">
+                          info@scalper.io
+                        </a>
+                      </div>
                     </div>
                   </div>
                   
@@ -347,7 +459,11 @@ const Index = () => {
                     </div>
                     <div>
                       <div className="text-sm text-muted-foreground">Телефон</div>
-                      <div className="font-medium">+7 (999) 123-45-67</div>
+                      <div className="font-medium">
+                        <a href="tel:+74993913647" className="hover:text-primary transition-colors">
+                          +7 (499) 391-36-47
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -363,7 +479,7 @@ const Index = () => {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Icon name="Sparkles" className="text-primary" size={24} />
-                <span className="text-xl font-bold">DevTeam</span>
+                <span className="text-xl font-bold">Scalper.io</span>
               </div>
               <p className="text-muted-foreground text-sm">
                 Полный цикл разработки от идеи до production
@@ -373,8 +489,16 @@ const Index = () => {
             <div>
               <h3 className="font-bold mb-4">Контакты</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
-                <div>Email: contact@devteam.ru</div>
-                <div>Телефон: +7 (999) 123-45-67</div>
+                <div>
+                  <a href="tel:+74993913647" className="hover:text-primary transition-colors">
+                    +7 (499) 391-36-47
+                  </a>
+                </div>
+                <div className="text-xs leading-relaxed">
+                  129164, город Москва,<br />
+                  Ракетный б-р, д. 16,<br />
+                  эт 13 пом 25 ком 25
+                </div>
               </div>
             </div>
             
@@ -390,8 +514,12 @@ const Index = () => {
           </div>
           
           <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-muted-foreground text-sm">
-              © 2024 ООО "ОПТИМЛАЙН". Все права защищены.
+            <div className="flex flex-col md:flex-row gap-3 items-center text-muted-foreground text-sm">
+              <span>© 2024 ООО "ОПТИМЛАЙН"</span>
+              <span className="hidden md:block">•</span>
+              <a href="/privacy" className="hover:text-primary transition-colors">
+                Политика конфиденциальности
+              </a>
             </div>
             
             <div className="flex gap-6">
