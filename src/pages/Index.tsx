@@ -126,14 +126,14 @@ const Index = () => {
         </div>
       </nav>
 
-      <section className="pt-32 pb-20 px-6">
-        <div className="container mx-auto text-center">
+      <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
+        <div className="container mx-auto text-center max-w-7xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8 animate-fade-in">
             <Icon name="Zap" className="text-primary" size={16} />
             <span className="text-sm text-primary font-medium">Инновации в разработке</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 animate-fade-in">
             Разрабатываем будущее
             <br />
             <span className="text-primary">
@@ -141,7 +141,7 @@ const Index = () => {
             </span>
           </h1>
           
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12 animate-fade-in">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto mb-8 sm:mb-12 animate-fade-in px-4">
             Мы — команда профессионалов, создающая современные веб-приложения и AI-решения. 
             Работаем как подрядчики и субподрядчики с компаниями любого масштаба.
           </p>
@@ -164,7 +164,7 @@ const Index = () => {
             </Button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-12 sm:mt-16 lg:mt-20 max-w-5xl mx-auto px-4">
             <div className="text-center">
               <div className="text-4xl font-bold text-primary mb-2">50+</div>
               <div className="text-muted-foreground">Проектов</div>
@@ -185,11 +185,11 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl">
-        <div className="container mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
+      <section id="services" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Наши услуги</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto mb-6 px-4">
               Полный цикл разработки: от фронтенда и бэкенда до архитектуры, дизайна и сложных ИИ-агентов
             </p>
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/30">
@@ -198,7 +198,7 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
             {services.map((service, index) => (
               <Card 
                 key={index} 
@@ -217,7 +217,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="tech" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl bg-card/20">
+      <section id="tech" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl bg-card/20">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии</h2>
@@ -240,7 +240,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="team" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl bg-card/10">
+      <section id="team" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl bg-card/10">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
@@ -268,7 +268,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl bg-card/20">
+      <section id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl bg-card/20">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Часто задаваемые вопросы</h2>
@@ -377,7 +377,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl">
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 border-2 border-border rounded-3xl">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
@@ -447,14 +447,14 @@ const Index = () => {
               </form>
               
               <div className="mt-8 pt-8 border-t border-border/50">
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                       <Icon name="Mail" className="text-primary" size={20} />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <div className="text-sm text-muted-foreground">Email</div>
-                      <div className="font-medium">
+                      <div className="font-medium break-all">
                         <a href="mailto:info@optunit.ru" className="hover:text-primary transition-colors">
                           info@optunit.ru
                         </a>
@@ -463,26 +463,26 @@ const Index = () => {
                   </div>
                   
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0">
                       <Icon name="Phone" className="text-secondary" size={20} />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <div className="text-sm text-muted-foreground">Телефон</div>
-                      <div className="font-medium">
+                      <div className="font-medium whitespace-nowrap">
                         <a href="tel:+74993913647" className="hover:text-primary transition-colors">
-                          +7 (499) 391-36-47
+                          +7 (499) 391-36-47
                         </a>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                       <Icon name="Send" className="text-primary" size={20} />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <div className="text-sm text-muted-foreground">Telegram</div>
-                      <div className="font-medium">
+                      <div className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">
                         <a href="https://t.me/Pyatyzhkin_Sergey" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                           @Pyatyzhkin_Sergey
                         </a>

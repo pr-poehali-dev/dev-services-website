@@ -104,3 +104,38 @@
     font-family: "Montserrat", sans-serif;
   }
 }
+
+@layer utilities {
+  /* Адаптация для ультраширокие экраны (21:9, 32:9 и т.д.) */
+  @media (min-aspect-ratio: 21/9) {
+    .container {
+      max-width: 85% !important;
+    }
+  }
+
+  /* Адаптация для старых 4:3 и 5:4 экранов */
+  @media (max-aspect-ratio: 5/4) {
+    .container {
+      max-width: 100% !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
+
+  /* Адаптация для вертикальных планшетов (3:2) */
+  @media (aspect-ratio: 3/2) {
+    .container {
+      max-width: 92% !important;
+    }
+  }
+
+  /* Адаптация для узких вертикальных экранов */
+  @media (max-aspect-ratio: 9/16) {
+    .text-7xl {
+      font-size: 3rem !important;
+    }
+    .text-5xl {
+      font-size: 2rem !important;
+    }
+  }
+}
