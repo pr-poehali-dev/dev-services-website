@@ -168,6 +168,27 @@
     }
   }
 
+  @keyframes slideUpBounce {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(100px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-10px);
+    }
+    80% {
+      transform: translateX(-50%) translateY(5px);
+    }
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   /* 15 уникальных путей анимации - избегаем header (0-15%) и footer (85-100%) */
   .animate-path-1 {
     animation: path1 12s linear infinite;

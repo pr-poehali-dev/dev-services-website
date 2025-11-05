@@ -7,6 +7,7 @@ import TeamSection from '@/components/sections/TeamSection';
 import FAQSection from '@/components/sections/FAQSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/sections/Footer';
+import BottomCTABanner from '@/components/BottomCTABanner';
 
 const Index = () => {
   const servicesRef = useRef<HTMLElement>(null);
@@ -45,6 +46,7 @@ const Index = () => {
       <FAQSection ref={faqRef} />
       <ContactSection ref={contactRef} />
       <Footer />
+      <BottomCTABanner />
     </div>
   );
 };

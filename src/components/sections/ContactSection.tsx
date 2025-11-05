@@ -43,7 +43,7 @@ const ContactSection = forwardRef<HTMLElement>((props, ref) => {
   };
 
   return (
-    <section ref={ref} id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-b from-background to-muted/30">
+    <section ref={ref} id="contact" className="scroll-mt-20 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Свяжитесь с нами</h2>

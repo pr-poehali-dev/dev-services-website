@@ -80,7 +80,7 @@ const faqCategories = [
 
 const FAQSection = forwardRef<HTMLElement>((props, ref) => {
   return (
-    <section ref={ref} id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
+    <section ref={ref} id="faq" className="scroll-mt-20 py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Частые вопросы</h2>

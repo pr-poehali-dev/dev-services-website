@@ -118,8 +118,14 @@ const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
     return () => clearInterval(interval);
   }, [isAutoPlay, totalSlides]);
 
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
   const goToSlide = (index: number) => {
-    setCurrentIndex(index);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex(index);
+      setIsTransitioning(false);
+    }, 300);
     setIsAutoPlay(false);
   };
 
@@ -128,11 +134,20 @@ const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
     currentIndex * itemsPerView + itemsPerView
   );
 
+  const handleSlideChange = (newIndex: number) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setIsTransitioning(false);
+    }, 300);
+    setIsAutoPlay(false);
+  };
+
   return (
     <section 
       ref={ref} 
       id="services" 
-      className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-muted/30"
+      className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-muted/30 scroll-mt-20"
       onMouseEnter={() => setIsAutoPlay(false)}
       onMouseLeave={() => setIsAutoPlay(true)}
     >
@@ -145,11 +160,15 @@ const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
         </div>
         
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 min-h-[380px]">
+          <div 
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 min-h-[380px] transition-all duration-500 ${
+              isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+            }`}
+          >
             {visibleServices.map((service, index) => (
               <Card 
                 key={currentIndex * itemsPerView + index}
-                className="bg-card hover:shadow-xl transition-all duration-500 border-border/50 hover:border-primary/50 animate-fade-in flex flex-col"
+                className="bg-card hover:shadow-xl transition-all duration-500 border-border/50 hover:border-primary/50 flex flex-col"
               >
                 <CardContent className="p-6 sm:p-8 flex flex-col flex-1">
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
@@ -174,8 +193,12 @@ const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
             <Button
               variant="outline"
               size="icon"
-              onClick={() => goToSlide((currentIndex - 1 + totalSlides) % totalSlides)}
+              onClick={() => {
+                const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                goToSlide(newIndex);
+              }}
               className="rounded-full"
+              disabled={isTransitioning}
             >
               <Icon name="ChevronLeft" size={20} />
             </Button>
@@ -185,6 +208,7 @@ const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
+                  disabled={isTransitioning}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex 
                       ? 'w-8 bg-primary' 
@@ -198,8 +222,12 @@ const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
             <Button
               variant="outline"
               size="icon"
-              onClick={() => goToSlide((currentIndex + 1) % totalSlides)}
+              onClick={() => {
+                const newIndex = (currentIndex + 1) % totalSlides;
+                goToSlide(newIndex);
+              }}
               className="rounded-full"
+              disabled={isTransitioning}
             >
               <Icon name="ChevronRight" size={20} />
             </Button>
