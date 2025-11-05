@@ -24,6 +24,16 @@ const Index = () => {
       description: 'Создаем современные интерфейсы на React, Vue, Angular с использованием TypeScript и современных подходов'
     },
     {
+      icon: 'Server',
+      title: 'Backend разработка',
+      description: 'Проектируем надежные серверные решения, API, микросервисы и распределенные системы'
+    },
+    {
+      icon: 'Network',
+      title: 'Архитектура систем',
+      description: 'Разрабатываем масштабируемую архитектуру для сложных enterprise-решений'
+    },
+    {
       icon: 'Palette',
       title: 'UI/UX дизайн',
       description: 'Проектируем удобные и красивые интерфейсы, создаем дизайн-системы и прототипы'
@@ -48,34 +58,22 @@ const Index = () => {
     { name: 'Node.js', icon: 'Server' },
     { name: 'Docker', icon: 'Container' },
     { name: 'PostgreSQL', icon: 'Database' },
-    { name: 'OpenAI', icon: 'Sparkles' }
+    { name: 'OpenAI', icon: 'Sparkles' },
+    { name: 'n8n', icon: 'Workflow' }
   ];
 
-  const team = [
-    {
-      name: 'Александр Иванов',
-      role: 'Tech Lead',
-      description: '10+ лет в разработке, эксперт в архитектуре сложных систем',
-      image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/3f0ca6bc-e62b-4f0a-b504-0e3b5caa4f45.jpg'
-    },
-    {
-      name: 'Мария Петрова',
-      role: 'AI Engineer',
-      description: 'Специалист по машинному обучению и нейросетям',
-      image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/9fa5bfdb-064b-4b25-a43e-c9f421bfab82.jpg'
-    },
-    {
-      name: 'Дмитрий Сидоров',
-      role: 'Frontend Lead',
-      description: 'Мастер современных фронтенд-технологий и UX',
-      image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/aacee4e1-3f7b-418b-9473-8797173ea0e1.jpg'
-    },
-    {
-      name: 'Елена Козлова',
-      role: 'UI/UX Designer',
-      description: 'Создает интуитивные и красивые интерфейсы',
-      image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/97b4a7e8-ccb1-4668-9461-039d0a19ffa6.jpg'
-    }
+  const teamStats = [
+    { count: '10+', role: 'Backend разработчиков', icon: 'Server' },
+    { count: '8+', role: 'Frontend разработчиков', icon: 'Code2' },
+    { count: '5+', role: 'UI/UX дизайнеров', icon: 'Palette' },
+    { count: '7+', role: 'AI/ML инженеров', icon: 'BrainCircuit' }
+  ];
+
+  const clients = [
+    { name: 'Добавьте логотип клиента' },
+    { name: 'Добавьте логотип клиента' },
+    { name: 'Добавьте логотип клиента' },
+    { name: 'Добавьте логотип клиента' }
   ];
 
   return (
@@ -92,6 +90,7 @@ const Index = () => {
             <a href="#services" className="text-foreground/80 hover:text-primary transition-colors">Услуги</a>
             <a href="#tech" className="text-foreground/80 hover:text-primary transition-colors">Технологии</a>
             <a href="#team" className="text-foreground/80 hover:text-primary transition-colors">Команда</a>
+            <a href="#clients" className="text-foreground/80 hover:text-primary transition-colors">Клиенты</a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
           </div>
           <Button className="bg-primary hover:bg-primary/90">
@@ -154,14 +153,18 @@ const Index = () => {
 
       <section id="services" className="py-20 px-6 bg-card/50">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Полный цикл разработки от идеи до запуска в production
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
+              Полный цикл разработки: от фронтенда и бэкенда до архитектуры, дизайна и сложных ИИ-агентов
             </p>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/30">
+              <Icon name="CheckCircle2" className="text-primary" size={20} />
+              <span className="text-primary font-medium">Закрываем полный цикл разработки</span>
+            </div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {services.map((service, index) => (
               <Card 
                 key={index} 
@@ -207,30 +210,47 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Опытные специалисты с экспертизой в разных областях
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+              Более 20+ специалистов с экспертизой в разных областях
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {teamStats.map((stat, index) => (
               <Card 
                 key={index}
-                className="bg-card/80 backdrop-blur border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden group"
+                className="bg-card/80 backdrop-blur border-border/50 hover:border-primary/50 transition-all duration-300 group"
               >
-                <div className="h-48 bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <div className="text-primary font-medium mb-3">{member.role}</div>
-                  <p className="text-sm text-muted-foreground">{member.description}</p>
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Icon name={stat.icon as any} className="text-primary" size={32} />
+                  </div>
+                  <div className="text-4xl font-bold text-primary mb-3">{stat.count}</div>
+                  <div className="text-muted-foreground font-medium">{stat.role}</div>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="clients" className="py-20 px-6">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши клиенты</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Нам доверяют ведущие компании
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {clients.map((client, index) => (
+              <div 
+                key={index}
+                className="h-32 rounded-xl bg-card/50 border border-border/50 flex items-center justify-center p-6 hover:border-primary/50 transition-all duration-300 hover:scale-105"
+              >
+                <div className="text-center text-muted-foreground text-sm">{client.name}</div>
+              </div>
             ))}
           </div>
         </div>
@@ -313,12 +333,41 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-12 px-6 border-t border-border/50">
+      <footer className="py-12 px-6 border-t border-border/50 bg-card/30">
         <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Icon name="Sparkles" className="text-primary" size={24} />
-              <span className="text-xl font-bold">DevTeam</span>
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Icon name="Sparkles" className="text-primary" size={24} />
+                <span className="text-xl font-bold">DevTeam</span>
+              </div>
+              <p className="text-muted-foreground text-sm">
+                Полный цикл разработки от идеи до production
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="font-bold mb-4">Контакты</h3>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div>Email: contact@devteam.ru</div>
+                <div>Телефон: +7 (999) 123-45-67</div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="font-bold mb-4">Юридическая информация</h3>
+              <div className="space-y-1 text-xs text-muted-foreground">
+                <div>ООО "ОПТИМЛАЙН"</div>
+                <div>ИНН: 7717701387</div>
+                <div>ОГРН: 1117746457278</div>
+                <div>ОКПО: 92499415</div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-muted-foreground text-sm">
+              © 2024 ООО "ОПТИМЛАЙН". Все права защищены.
             </div>
             
             <div className="flex gap-6">
@@ -331,10 +380,6 @@ const Index = () => {
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="Twitter" size={24} />
               </a>
-            </div>
-            
-            <div className="text-muted-foreground text-sm">
-              © 2024 DevTeam. Все права защищены.
             </div>
           </div>
         </div>
