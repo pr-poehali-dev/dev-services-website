@@ -145,21 +145,26 @@ const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
         </div>
         
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 min-h-[320px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 min-h-[380px]">
             {visibleServices.map((service, index) => (
               <Card 
                 key={currentIndex * itemsPerView + index}
-                className="bg-card hover:shadow-xl transition-all duration-500 border-border/50 hover:border-primary/50 animate-fade-in cursor-pointer"
-                onClick={() => window.location.href = '/become-client'}
+                className="bg-card hover:shadow-xl transition-all duration-500 border-border/50 hover:border-primary/50 animate-fade-in flex flex-col"
               >
-                <CardContent className="p-6 sm:p-8">
+                <CardContent className="p-6 sm:p-8 flex flex-col flex-1">
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                     <Icon name={service.icon as any} className="text-primary" size={28} />
                   </div>
                   <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
                     {service.description}
                   </p>
+                  <Button 
+                    onClick={() => window.location.href = '/become-client'}
+                    className="w-full"
+                  >
+                    Заказать услугу
+                  </Button>
                 </CardContent>
               </Card>
             ))}
