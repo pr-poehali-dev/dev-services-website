@@ -185,7 +185,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl">
+      <section id="services" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl">
         <div className="container mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
@@ -217,7 +217,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="tech" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl bg-card/20">
+      <section id="tech" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl bg-card/20">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии</h2>
@@ -240,7 +240,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="team" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl bg-card/10">
+      <section id="team" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl bg-card/10">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
@@ -268,7 +268,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl bg-card/20">
+      <section id="faq" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl bg-card/20">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Часто задаваемые вопросы</h2>
@@ -377,7 +377,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-6 my-12 mx-4 md:mx-12 border border-border/30 rounded-3xl">
+      <section id="contact" className="py-20 px-6 my-12 mx-4 md:mx-12 border-2 border-border rounded-3xl">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
@@ -447,7 +447,7 @@ const Index = () => {
               </form>
               
               <div className="mt-8 pt-8 border-t border-border/50">
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-3 gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                       <Icon name="Mail" className="text-primary" size={20} />
@@ -475,6 +475,20 @@ const Index = () => {
                       </div>
                     </div>
                   </div>
+
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Icon name="Send" className="text-primary" size={20} />
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground">Telegram</div>
+                      <div className="font-medium">
+                        <a href="https://t.me/Pyatyzhkin_Sergey" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                          @Pyatyzhkin_Sergey
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -482,61 +496,7 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-12 px-6 border-t border-border/50 bg-card/30">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Icon name="Sparkles" className="text-primary" size={24} />
-                <span className="text-xl font-bold">Scalper.io</span>
-              </div>
-              <p className="text-muted-foreground text-sm">
-                Полный цикл разработки от идеи до production
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-bold mb-4">Контакты</h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <div>
-                  <a href="tel:+74993913647" className="hover:text-primary transition-colors">
-                    +7 (499) 391-36-47
-                  </a>
-                </div>
-                <div className="text-xs leading-relaxed">
-                  129164, город Москва,<br />
-                  Ракетный б-р, д. 16,<br />
-                  эт 13 пом 25 ком 25
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-bold mb-4">Юридическая информация</h3>
-              <div className="space-y-1 text-xs text-muted-foreground">
-                <div>ООО "ОПТИМЛАЙН"</div>
-                <div>ИНН: 7717701387</div>
-                <div>ОГРН: 1117746457278</div>
-                <div>ОКПО: 92499415</div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-border/50 flex justify-center">
-            <div className="flex gap-6">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Icon name="Github" size={24} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Icon name="Linkedin" size={24} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Icon name="Twitter" size={24} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+
     </div>
   );
 };

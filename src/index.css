@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 5%;
 
-    --primary: 180 85% 45%;
+    --primary: 180 75% 38%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 180 50% 25%;
@@ -24,26 +24,26 @@
     --muted: 210 20% 95%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 180 85% 45%;
+    --accent: 180 75% 38%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 90%;
+    --border: 210 15% 70%;
     --input: 210 20% 90%;
-    --ring: 180 85% 45%;
+    --ring: 180 75% 38%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 5%;
-    --sidebar-primary: 180 85% 45%;
+    --sidebar-primary: 180 75% 38%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 210 20% 95%;
     --sidebar-accent-foreground: 0 0% 5%;
-    --sidebar-border: 210 20% 90%;
-    --sidebar-ring: 180 85% 45%;
+    --sidebar-border: 210 15% 70%;
+    --sidebar-ring: 180 75% 38%;
   }
 
   .dark {
@@ -56,7 +56,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 5%;
 
-    --primary: 180 85% 45%;
+    --primary: 180 75% 38%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 180 50% 25%;
@@ -65,23 +65,23 @@
     --muted: 210 20% 95%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 180 85% 45%;
+    --accent: 180 75% 38%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 90%;
+    --border: 210 15% 70%;
     --input: 210 20% 90%;
-    --ring: 180 85% 45%;
+    --ring: 180 75% 38%;
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 5%;
-    --sidebar-primary: 180 85% 45%;
+    --sidebar-primary: 180 75% 38%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 210 20% 95%;
     --sidebar-accent-foreground: 0 0% 5%;
-    --sidebar-border: 210 20% 90%;
-    --sidebar-ring: 180 85% 45%;
+    --sidebar-border: 210 15% 70%;
+    --sidebar-ring: 180 75% 38%;
   }
 }
 
