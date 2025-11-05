@@ -12,12 +12,12 @@ const Navbar = () => {
           </span>
         </div>
         <div className="hidden md:flex gap-8">
-          <a href="#services" className="text-foreground/80 hover:text-primary transition-colors">Услуги</a>
-          <a href="#tech" className="text-foreground/80 hover:text-primary transition-colors">Технологии</a>
-          <a href="#team" className="text-foreground/80 hover:text-primary transition-colors">Команда</a>
+          <a href="/#services" className="text-foreground/80 hover:text-primary transition-colors">Услуги</a>
+          <a href="/#tech" className="text-foreground/80 hover:text-primary transition-colors">Технологии</a>
+          <a href="/#team" className="text-foreground/80 hover:text-primary transition-colors">Команда</a>
           <a href="/portfolio" className="text-foreground/80 hover:text-primary transition-colors">Портфолио</a>
-          <a href="#faq" className="text-foreground/80 hover:text-primary transition-colors">FAQ</a>
-          <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
+          <a href="/partners" className="text-foreground/80 hover:text-primary transition-colors">Партнёры</a>
+          <a href="/#faq" className="text-foreground/80 hover:text-primary transition-colors">FAQ</a>
         </div>
         <Button className="bg-primary hover:bg-primary/90" asChild>
           <a href="/become-client">
