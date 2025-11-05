@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -98,32 +98,6 @@ const Index = () => {
     { count: '10+', role: 'AI/ML инженеров', icon: 'BrainCircuit' }
   ];
 
-  const servicesRef = useRef<HTMLElement>(null);
-  const techRef = useRef<HTMLElement>(null);
-  const teamRef = useRef<HTMLElement>(null);
-  const faqRef = useRef<HTMLElement>(null);
-  const contactRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const refs = [servicesRef, techRef, teamRef, faqRef, contactRef];
-    refs.forEach((ref) => {
-      if (ref.current) observer.observe(ref.current);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
       <nav className="fixed w-full bg-background/80 backdrop-blur-lg border-b border-border z-50">
@@ -209,7 +183,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section ref={servicesRef} id="services" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
+      <section id="services" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Наши услуги</h2>
@@ -241,7 +215,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section ref={techRef} id="tech" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
+      <section id="tech" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии</h2>
@@ -264,7 +238,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section ref={teamRef} id="team" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
+      <section id="team" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
@@ -292,7 +266,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section ref={faqRef} id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
+      <section id="faq" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Часто задаваемые вопросы</h2>
@@ -401,7 +375,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section ref={contactRef} id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24 opacity-0">
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 my-8 sm:my-12 mx-2 sm:mx-4 lg:mx-8 xl:mx-16 2xl:mx-24">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
