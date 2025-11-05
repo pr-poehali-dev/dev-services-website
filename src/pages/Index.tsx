@@ -9,7 +9,8 @@ const Index = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    agreeToPolicy: false
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -59,14 +60,17 @@ const Index = () => {
     { name: 'Docker', icon: 'Container' },
     { name: 'PostgreSQL', icon: 'Database' },
     { name: 'OpenAI', icon: 'Sparkles' },
-    { name: 'n8n', icon: 'Workflow' }
+    { name: 'n8n', icon: 'Workflow' },
+    { name: 'Next.js', icon: 'Layers' },
+    { name: 'AWS', icon: 'Cloud' },
+    { name: 'Kubernetes', icon: 'Box' }
   ];
 
   const teamStats = [
-    { count: '10+', role: 'Backend разработчиков', icon: 'Server' },
-    { count: '8+', role: 'Frontend разработчиков', icon: 'Code2' },
-    { count: '5+', role: 'UI/UX дизайнеров', icon: 'Palette' },
-    { count: '7+', role: 'AI/ML инженеров', icon: 'BrainCircuit' }
+    { count: '5', role: 'Backend разработчиков', icon: 'Server' },
+    { count: '5', role: 'Frontend разработчиков', icon: 'Code2' },
+    { count: '2', role: 'UI/UX дизайнеров', icon: 'Palette' },
+    { count: '3', role: 'AI/ML инженеров', icon: 'BrainCircuit' }
   ];
 
   const clients = [
@@ -192,7 +196,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {technologies.map((tech, index) => (
               <div 
                 key={index}
@@ -211,7 +215,7 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Более 20+ специалистов с экспертизой в разных областях
+              15 специалистов с экспертизой в разных областях
             </p>
           </div>
           
@@ -299,7 +303,27 @@ const Index = () => {
                   />
                 </div>
                 
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-lg py-6">
+                <div className="flex items-start gap-2">
+                  <input 
+                    type="checkbox" 
+                    id="privacy-policy"
+                    checked={formData.agreeToPolicy}
+                    onChange={(e) => setFormData({...formData, agreeToPolicy: e.target.checked})}
+                    className="mt-1 w-4 h-4 rounded border-border"
+                  />
+                  <label htmlFor="privacy-policy" className="text-sm text-muted-foreground">
+                    Я соглашаюсь с{' '}
+                    <a href="#" className="text-primary hover:underline">
+                      политикой конфиденциальности
+                    </a>
+                  </label>
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
+                  disabled={!formData.agreeToPolicy}
+                >
                   <Icon name="Send" className="mr-2" size={20} />
                   Отправить заявку
                 </Button>
