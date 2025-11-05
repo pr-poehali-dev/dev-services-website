@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
@@ -15,7 +16,13 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    const subject = encodeURIComponent('Новая заявка с сайта Scalper.io');
+    const body = encodeURIComponent(
+      `Имя: ${formData.name}\n\nEmail: ${formData.email}\n\nСообщение:\n${formData.message}`
+    );
+    
+    window.location.href = `mailto:info@optunit.ru?subject=${subject}&body=${body}`;
   };
 
   const services = [
@@ -67,18 +74,13 @@ const Index = () => {
   ];
 
   const teamStats = [
-    { count: '5', role: 'Backend разработчиков', icon: 'Server' },
-    { count: '5', role: 'Frontend разработчиков', icon: 'Code2' },
-    { count: '2', role: 'UI/UX дизайнеров', icon: 'Palette' },
-    { count: '3', role: 'AI/ML инженеров', icon: 'BrainCircuit' }
+    { count: '20+', role: 'Backend разработчиков', icon: 'Server' },
+    { count: '15+', role: 'Frontend разработчиков', icon: 'Code2' },
+    { count: '8+', role: 'UI/UX дизайнеров', icon: 'Palette' },
+    { count: '10+', role: 'AI/ML инженеров', icon: 'BrainCircuit' }
   ];
 
-  const clients = [
-    { name: 'Добавьте логотип клиента' },
-    { name: 'Добавьте логотип клиента' },
-    { name: 'Добавьте логотип клиента' },
-    { name: 'Добавьте логотип клиента' }
-  ];
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -94,12 +96,14 @@ const Index = () => {
             <a href="#services" className="text-foreground/80 hover:text-primary transition-colors">Услуги</a>
             <a href="#tech" className="text-foreground/80 hover:text-primary transition-colors">Технологии</a>
             <a href="#team" className="text-foreground/80 hover:text-primary transition-colors">Команда</a>
-            <a href="#clients" className="text-foreground/80 hover:text-primary transition-colors">Клиенты</a>
+
             <a href="#faq" className="text-foreground/80 hover:text-primary transition-colors">FAQ</a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
-            Связаться
+          <Button className="bg-primary hover:bg-primary/90" asChild>
+            <a href="/become-client">
+              Стать клиентом
+            </a>
           </Button>
         </div>
       </nav>
@@ -125,13 +129,17 @@ const Index = () => {
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 animate-fade-in">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8">
-              <Icon name="Rocket" className="mr-2" size={20} />
-              Начать проект
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8" asChild>
+              <a href="https://t.me/scalper_io_public" target="_blank" rel="noopener noreferrer">
+                <Icon name="Rocket" className="mr-2" size={20} />
+                Начать проект
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 border-primary/30 hover:bg-primary/10">
-              <Icon name="Phone" className="mr-2" size={20} />
-              Обсудить задачу
+            <Button size="lg" variant="outline" className="text-lg px-8 border-primary/30 hover:bg-primary/10" asChild>
+              <a href="mailto:info@optunit.ru">
+                <Icon name="Mail" className="mr-2" size={20} />
+                Обсудить задачу
+              </a>
             </Button>
           </div>
 
@@ -156,7 +164,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-6 bg-card/50">
+      <section id="services" className="py-20 px-6 border-t-4 border-primary/20">
         <div className="container mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
@@ -188,7 +196,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="tech" className="py-20 px-6">
+      <section id="tech" className="py-20 px-6 bg-gradient-to-b from-background to-card/30 border-t-4 border-primary/20">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии</h2>
@@ -211,12 +219,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="team" className="py-20 px-6 bg-card/50">
+      <section id="team" className="py-20 px-6 bg-card/30 border-t-4 border-primary/20">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              15 специалистов с экспертизой в разных областях
+              50+ специалистов с экспертизой в разных областях
             </p>
           </div>
           
@@ -239,29 +247,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="clients" className="py-20 px-6">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши клиенты</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Нам доверяют ведущие компании
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {clients.map((client, index) => (
-              <div 
-                key={index}
-                className="h-32 rounded-xl bg-card/50 border border-border/50 flex items-center justify-center p-6 hover:border-primary/50 transition-all duration-300 hover:scale-105"
-              >
-                <div className="text-center text-muted-foreground text-sm">{client.name}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" className="py-20 px-6 bg-card/30">
+      <section id="faq" className="py-20 px-6 bg-card/30 border-t-4 border-primary/20">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Часто задаваемые вопросы</h2>
@@ -270,101 +256,103 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="space-y-4">
-            <div className="bg-card border border-border rounded-xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Icon name="MessageCircle" className="text-primary" size={24} />
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="ai" className="bg-card border border-border rounded-xl px-6 overflow-hidden">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <div className="flex items-center gap-3">
+                  <Icon name="BrainCircuit" className="text-primary" size={24} />
+                  <span className="text-lg font-bold">Искусственный интеллект и автоматизация</span>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold mb-2">Какие бизнес-задачи лучше всего подходят для автоматизации с помощью ИИ-агентов?</h3>
-                  <p className="text-muted-foreground mb-3">Мы разделяем на два варианта бизнес-задач, которые ИИ может закрыть:</p>
-                  <div className="space-y-3 text-sm text-muted-foreground">
-                    <div>
-                      <strong className="text-foreground">Первый</strong> – заменить людей, которые делают регулярную однотипную работу, то есть оптимизировать процесс и сократить человеческие ресурсы за счет автоматизации. Например – решение для поддержки, квалификация лидов, онбординг, обработка заявок, первичный анализ данных и др.рутинные задачи.
-                    </div>
-                    <div>
-                      <strong className="text-foreground">Второй</strong> – начать использовать ИИ-агентов, где до этого человек не мог закрыть собой процесс — это уж абсолютно новое направление, которое создает возможность для появления "голубых океанов". Например – мгновенно создавать и тестировать маркетинговый контент повышая CTR оффера до предельного максимума, руками человека это делается целой командой и временными затратами кратно больше чем мгновенно.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Icon name="Clock" className="text-primary" size={24} />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold mb-2">Каковы реальные сроки и этапы внедрения ИИ-решения?</h3>
-                  <p className="text-muted-foreground">
-                    Обычно пилот запускается за <strong className="text-foreground">3–4 недели</strong>, а масштабирование — ещё <strong className="text-foreground">2–4 недели</strong> в зависимости от интеграций и объёма закрываемых задач.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Icon name="BarChart3" className="text-primary" size={24} />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold mb-2">Как измерять эффективность и экономический эффект от ИИ?</h3>
-                  <p className="text-muted-foreground mb-3">Фиксируем baseline (время/стоимость/конверсия) → запускаем пилот → сравниваем «до/после» по KPI:</p>
-                  <ul className="space-y-1 text-sm text-muted-foreground list-disc list-inside">
-                    <li>сокращение FTE, время обработки</li>
-                    <li>% автоматизации, uplift конверсии и экономия в ₽/$</li>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-4 pb-6">
+                <div>
+                  <h4 className="font-semibold mb-2">Какие бизнес-задачи лучше всего подходят для автоматизации с помощью ИИ-агентов?</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Мы разделяем на два варианта бизнес-задач:</p>
+                  <ul className="text-sm text-muted-foreground space-y-2 ml-4">
+                    <li><strong>Первый</strong> – заменить регулярные рутинные операции: поддержка клиентов, квалификация лидов, онбординг, обработка заявок.</li>
+                    <li><strong>Второй</strong> – создать новые возможности там, где человек физически не успевает: мгновенная генерация и A/B-тестирование контента, динамическая персонализация на каждого пользователя.</li>
                   </ul>
                 </div>
-              </div>
-            </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Каковы реальные сроки внедрения ИИ-решения?</h4>
+                  <p className="text-sm text-muted-foreground">Пилот — 3-4 недели, масштабирование — еще 2-4 недели в зависимости от интеграций.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Как измерить эффективность от внедрения ИИ?</h4>
+                  <p className="text-sm text-muted-foreground">Фиксируем baseline показатели → запускаем пилот → сравниваем результаты по KPI: сокращение времени обработки, рост конверсии, экономия в рублях.</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div className="bg-card border border-border rounded-xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Icon name="DollarSign" className="text-primary" size={24} />
+            <AccordionItem value="architecture" className="bg-card border border-border rounded-xl px-6 overflow-hidden">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <div className="flex items-center gap-3">
+                  <Icon name="Network" className="text-primary" size={24} />
+                  <span className="text-lg font-bold">Архитектура и масштабирование</span>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold mb-2">Сколько стоит внедрение ИИ-агентов в ваш бизнес?</h3>
-                  <p className="text-muted-foreground mb-3">Мы работаем по двум моделям:</p>
-                  <div className="space-y-2 text-sm text-muted-foreground">
-                    <div>1. Фиксированная оплата на старте проекта где цена может начинаться от 300тр. за интеграцию одного ИИ-агента.</div>
-                    <div>2. Оплата по результату внедрения (revenue-share) – мы на старте определяем какую эффективность получим и после запуска берём 25-35% от сэкономленных или заработанных средств. Такой способ помогает снизить ваши риски на старте и мы с вами разделим финансовые результаты после внедрения ИИ в ваши бизнес процессы.</div>
-                  </div>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-4 pb-6">
+                <div>
+                  <h4 className="font-semibold mb-2">Как вы проектируете масштабируемую архитектуру?</h4>
+                  <p className="text-sm text-muted-foreground">Используем микросервисную архитектуру с горизонтальным масштабированием, контейнеризацией (Docker/Kubernetes) и асинхронной обработкой через очереди сообщений. Это позволяет системе расти вместе с вашим бизнесом без переписывания с нуля.</p>
                 </div>
-              </div>
-            </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Сколько времени занимает проектирование архитектуры?</h4>
+                  <p className="text-sm text-muted-foreground">Discovery и архитектурное проектирование — 1-2 недели. Далее создаем MVP для валидации решений — еще 2-3 недели. Полный цикл от идеи до production зависит от сложности, обычно 2-3 месяца.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Как обеспечиваете высокую доступность системы?</h4>
+                  <p className="text-sm text-muted-foreground">Реализуем отказоустойчивость через репликацию, балансировку нагрузки, автоматический failover и мониторинг в режиме 24/7. Целевой uptime — 99.9%.</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div className="bg-card border border-border rounded-xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Icon name="Shield" className="text-primary" size={24} />
+            <AccordionItem value="integration" className="bg-card border border-border rounded-xl px-6 overflow-hidden">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <div className="flex items-center gap-3">
+                  <Icon name="Plug" className="text-primary" size={24} />
+                  <span className="text-lg font-bold">Интеграции и API</span>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold mb-2">Как обеспечить защиту данных и соблюдение нормативных требований при использовании ИИ?</h3>
-                  <p className="text-muted-foreground">
-                    Защита достигается сочетанием архитектурных решений (on-prem/Hybrid), шифрования, ограниченного доступа и процедур (data minimization, логирование, DLP). Мы проектируем решения с учётом регуляторики (GDPR, HIPAA и локальных требований).
-                  </p>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-4 pb-6">
+                <div>
+                  <h4 className="font-semibold mb-2">С какими системами вы можете интегрироваться?</h4>
+                  <p className="text-sm text-muted-foreground">Интегрируемся с любыми системами через REST/GraphQL API, webhooks, очереди сообщений (RabbitMQ, Kafka). Опыт работы с 1C, SAP, Salesforce, популярными CRM/ERP, платежными системами и маркетинговыми платформами.</p>
                 </div>
-              </div>
-            </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Как обеспечиваете безопасность при интеграциях?</h4>
+                  <p className="text-sm text-muted-foreground">Используем OAuth 2.0, JWT-токены, шифрование трафика (TLS), rate limiting и API gateway для контроля доступа. Все секретные данные хранятся в защищенных хранилищах (Vault).</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Нужна ли нам отдельная инфраструктура для интеграций?</h4>
+                  <p className="text-sm text-muted-foreground">Нет, можем работать через облачные решения или развернуть интеграционную шину на вашей инфраструктуре. Для строгих требований безопасности — hybrid или on-premise варианты.</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div className="bg-card border border-border rounded-xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Icon name="Server" className="text-primary" size={24} />
+            <AccordionItem value="mobile" className="bg-card border border-border rounded-xl px-6 overflow-hidden">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <div className="flex items-center gap-3">
+                  <Icon name="Smartphone" className="text-primary" size={24} />
+                  <span className="text-lg font-bold">Мобильная разработка</span>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold mb-2">Нужна ли мне отдельная ИТ-инфраструктура для запуска ИИ-агента?</h3>
-                  <p className="text-muted-foreground">
-                    Не всегда — можно начать с облачных решений (минимальные требования). Для строгих требований безопасности возможен hybrid или on-prem вариант.
-                  </p>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-4 pb-6">
+                <div>
+                  <h4 className="font-semibold mb-2">Какие технологии используете для мобильной разработки?</h4>
+                  <p className="text-sm text-muted-foreground">Для кросс-платформы — React Native и Flutter, для нативной разработки — Swift (iOS) и Kotlin (Android). Выбор зависит от требований к производительности и функционалу.</p>
                 </div>
-              </div>
-            </div>
-          </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Сколько стоит разработка мобильного приложения?</h4>
+                  <p className="text-sm text-muted-foreground">MVP для одной платформы — от 800 тыс. рублей, для двух платформ (кросс-платформа) — от 1.2 млн. рублей. Точная оценка после детального брифа и проектирования.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Поддерживаете ли приложения после запуска?</h4>
+                  <p className="text-sm text-muted-foreground">Да, предоставляем полный цикл поддержки: обновления под новые версии ОС, исправление багов, добавление функционала, мониторинг и аналитику использования.</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
@@ -446,8 +434,8 @@ const Index = () => {
                     <div>
                       <div className="text-sm text-muted-foreground">Email</div>
                       <div className="font-medium">
-                        <a href="mailto:info@scalper.io" className="hover:text-primary transition-colors">
-                          info@scalper.io
+                        <a href="mailto:info@optunit.ru" className="hover:text-primary transition-colors">
+                          info@optunit.ru
                         </a>
                       </div>
                     </div>
