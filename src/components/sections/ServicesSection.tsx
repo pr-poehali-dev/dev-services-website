@@ -149,7 +149,8 @@ const ServicesSection = forwardRef<HTMLElement>((props, ref) => {
             {visibleServices.map((service, index) => (
               <Card 
                 key={currentIndex * itemsPerView + index}
-                className="bg-card hover:shadow-xl transition-all duration-500 border-border/50 hover:border-primary/50 animate-fade-in"
+                className="bg-card hover:shadow-xl transition-all duration-500 border-border/50 hover:border-primary/50 animate-fade-in cursor-pointer"
+                onClick={() => window.location.href = '/become-client'}
               >
                 <CardContent className="p-6 sm:p-8">
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
