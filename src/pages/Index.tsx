@@ -528,8 +528,8 @@ const Index = () => {
           <div className="text-center text-sm text-muted-foreground space-y-4">
             <div className="space-y-2">
               <p className="font-semibold text-foreground">ООО "ОПТИМЛАЙН"</p>
-              <p>ИНН: 9705195691 | ОГРН: 1247700620773</p>
-              <p>117105, г. Москва, Варшавское шоссе, д. 1, стр. 6, этаж 4, ком. 10</p>
+              <p>ИНН: 7717701387 | ОГРН: 1117746457278</p>
+              <p>129164, город Москва, Ракетный б-р, д. 16, эт. 13 пом 25</p>
             </div>
             
             <div className="pt-4 border-t border-border/30">
