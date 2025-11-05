@@ -55,25 +55,50 @@ const TechnologiesSection = forwardRef<HTMLElement>((props, ref) => {
           </p>
         </div>
         
-        <div className="relative">
-          <div className="flex overflow-hidden">
-            <div className="flex gap-6 animate-scroll">
-              {[...technologies, ...technologies].map((tech, index) => (
-                <div 
-                  key={index}
-                  className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/50 hover:shadow-lg transition-all duration-300 min-w-[140px]"
-                >
-                  <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Icon name={tech.icon as any} className="text-primary" size={28} />
+        <div className="space-y-8">
+          {/* Первая рулетка - слева направо */}
+          <div className="relative">
+            <div className="flex overflow-hidden">
+              <div className="flex gap-6 animate-scroll">
+                {[...technologies, ...technologies].map((tech, index) => (
+                  <div 
+                    key={index}
+                    className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/50 hover:shadow-lg transition-all duration-300 min-w-[140px]"
+                  >
+                    <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Icon name={tech.icon as any} className="text-primary" size={28} />
+                    </div>
+                    <span className="text-sm font-medium text-center whitespace-nowrap">{tech.name}</span>
                   </div>
-                  <span className="text-sm font-medium text-center whitespace-nowrap">{tech.name}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
+            
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent pointer-events-none" />
           </div>
-          
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+
+          {/* Вторая рулетка - справа налево */}
+          <div className="relative">
+            <div className="flex overflow-hidden">
+              <div className="flex gap-6 animate-scroll-reverse">
+                {[...technologies, ...technologies].map((tech, index) => (
+                  <div 
+                    key={`reverse-${index}`}
+                    className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/50 hover:shadow-lg transition-all duration-300 min-w-[140px]"
+                  >
+                    <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Icon name={tech.icon as any} className="text-primary" size={28} />
+                    </div>
+                    <span className="text-sm font-medium text-center whitespace-nowrap">{tech.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+          </div>
         </div>
         
         <div className="text-center mt-8">
