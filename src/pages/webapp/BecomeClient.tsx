@@ -47,16 +47,12 @@ ${formData.description}
 ${formData.challenges}`;
 
     try {
-      const response = await fetch('https://functions.poehali.dev/f7fe99b5-bce9-4bc5-bd19-f2df67d65ab8', {
+      const response = await fetch('https://functions.poehali.dev/0fe7f747-8cc6-4533-9015-b49d4271936b', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: `${formData.name} (${formData.company})`,
-          email: formData.email,
-          message: fullMessage
-        })
+        body: JSON.stringify(formData)
       });
       
       const result = await response.json();
