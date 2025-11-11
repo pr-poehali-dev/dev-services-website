@@ -26,6 +26,7 @@ const Navbar = () => {
 
           <div className="hidden md:flex gap-6 lg:gap-8 items-center">
             <a href="/#services" className="text-foreground/80 hover:text-primary transition-colors">Услуги</a>
+            <a href="/solutions" className="text-foreground/80 hover:text-primary transition-colors">Готовые решения</a>
             <a href="/#tech" className="text-foreground/80 hover:text-primary transition-colors">Технологии</a>
             <a href="/#team" className="text-foreground/80 hover:text-primary transition-colors">Команда</a>
             <a href="/portfolio" className="text-foreground/80 hover:text-primary transition-colors">Портфолио</a>
@@ -53,6 +54,13 @@ const Navbar = () => {
               onClick={closeMobileMenu}
             >
               Услуги
+            </a>
+            <a 
+              href="/solutions" 
+              className="block text-foreground/80 hover:text-primary transition-colors py-2"
+              onClick={closeMobileMenu}
+            >
+              Готовые решения
             </a>
             <a 
               href="/#tech" 

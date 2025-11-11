@@ -9,6 +9,8 @@ import Privacy from "./pages/webapp/Privacy";
 import BecomeClient from "./pages/webapp/BecomeClient";
 import Portfolio from "./pages/webapp/Portfolio";
 import Partners from "./pages/webapp/Partners";
+import Solutions from "./pages/Solutions";
+import SolutionDetail from "./pages/SolutionDetail";
 import NotFound from "./pages/NotFound";
 import Gamification from "./components/Gamification";
 
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/become-client" element={<BecomeClient />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/partners" element={<Partners />} />
+          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/solutions/:slug" element={<SolutionDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
