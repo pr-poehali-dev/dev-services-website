@@ -22,7 +22,7 @@ const solutionsData: Record<string, SolutionData> = {
     title: 'Веб-скрапер',
     subtitle: 'Автоматизированный сбор данных с веб-сайтов',
     description: 'Веб-скрапер — это мощный инструмент для автоматического сбора структурированных данных с веб-сайтов. Решение позволяет собирать контактные данные, мониторить цены конкурентов, агрегировать информацию о товарах и услугах без ручного копирования.',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/c1efd045-a032-4033-8f0e-11308d48c83d.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/45cf46a3-a848-49d9-a3a5-df3e2e24d0f6.jpg',
     icon: 'Globe',
     benefits: [
       {
@@ -81,7 +81,7 @@ const solutionsData: Record<string, SolutionData> = {
     title: 'Чат-бот с ИИ',
     subtitle: 'Интеллектуальный помощник для автоматизации общения',
     description: 'ИИ-чат-бот нового поколения с глубоким пониманием контекста и возможностью обучения на ваших данных. Обеспечивает естественное общение с клиентами в мессенджерах и на сайте, автоматизирует поддержку и повышает конверсию.',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/534480ed-ce94-46a4-8722-c5ef2b0c33a6.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/b2e629e4-b188-43dc-9474-d7dfc6caa259.jpg',
     icon: 'MessageSquare',
     benefits: [
       {
@@ -140,7 +140,7 @@ const solutionsData: Record<string, SolutionData> = {
     title: 'Лидогенератор на базе ИИ',
     subtitle: 'Умная система для привлечения клиентов',
     description: 'Интеллектуальная система генерации и квалификации лидов с использованием машинного обучения. Анализирует поведение посетителей, предсказывает намерения и автоматически выявляет горячих клиентов для отдела продаж.',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/17ed36b2-9523-4888-b2a5-99ef8aa506f0.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/1ac7e262-586b-48af-a39d-36d042316390.jpg',
     icon: 'Target',
     benefits: [
       {
@@ -199,7 +199,7 @@ const solutionsData: Record<string, SolutionData> = {
     title: 'CRM-система',
     subtitle: 'Управление продажами и клиентами',
     description: 'Комплексная CRM-система для автоматизации продаж, маркетинга и обслуживания клиентов. Централизует всю информацию о клиентах, контролирует работу менеджеров и повышает эффективность отдела продаж.',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/316885c2-cbcc-4580-9218-c9f22f7090f1.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/7ec72035-f084-432f-a1d3-5d970bf03682.jpg',
     icon: 'Users',
     benefits: [
       {
@@ -269,9 +269,9 @@ const SolutionDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-20 sm:pt-24 animate-in fade-in duration-500">
+      <main className="pt-20 sm:pt-24 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl py-8">
-          <Button variant="ghost" asChild className="mb-6">
+          <Button variant="ghost" asChild className="mb-6 hover:scale-105 transition-transform duration-300">
             <a href="/solutions" className="gap-2">
               <Icon name="ArrowLeft" size={18} />
               Все решения
@@ -279,11 +279,16 @@ const SolutionDetail = () => {
           </Button>
         </div>
 
-        <div 
-          className="relative h-[300px] sm:h-[400px] bg-cover bg-center"
-          style={{ backgroundImage: `url(${solution.image})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
+        <div className="relative h-[300px] sm:h-[400px] overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-background animate-pulse"></div>
+            <img
+              src={solution.image}
+              alt={solution.title}
+              className="w-full h-full object-cover mix-blend-multiply"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70 backdrop-blur-[2px]" />
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl h-full flex items-center relative z-10">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-4">

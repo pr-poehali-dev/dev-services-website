@@ -17,7 +17,7 @@ const solutions: Solution[] = [
     id: 1,
     title: 'Веб-скрапер',
     description: 'Автоматизированный инструмент для сбора контактных данных и лидов с веб-сайтов. Повышает эффективность продаж...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/c1efd045-a032-4033-8f0e-11308d48c83d.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/45cf46a3-a848-49d9-a3a5-df3e2e24d0f6.jpg',
     slug: 'web-scraper',
     icon: 'Globe'
   },
@@ -25,7 +25,7 @@ const solutions: Solution[] = [
     id: 2,
     title: 'Чат-бот с ИИ',
     description: 'Интеллектуальный чат-бот для мессенджеров с возможностью обучения. Автоматизирует общение...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/534480ed-ce94-46a4-8722-c5ef2b0c33a6.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/b2e629e4-b188-43dc-9474-d7dfc6caa259.jpg',
     slug: 'ai-chatbot',
     icon: 'MessageSquare'
   },
@@ -33,7 +33,7 @@ const solutions: Solution[] = [
     id: 3,
     title: 'Лидогенератор на базе ИИ',
     description: 'Система автоматической генерации качественных лидов с использованием искусственного...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/17ed36b2-9523-4888-b2a5-99ef8aa506f0.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/1ac7e262-586b-48af-a39d-36d042316390.jpg',
     slug: 'ai-lead-generator',
     icon: 'Target'
   },
@@ -41,7 +41,7 @@ const solutions: Solution[] = [
     id: 4,
     title: 'ИИ-агент продажник',
     description: 'Виртуальный помощник для поддержки клиентов и увеличения конверсии на сайте. Отвечает на...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/3c246348-2d47-496d-baab-53b7e069b607.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/13d5aa8f-93c5-4d67-987e-1141a00a7141.jpg',
     slug: 'ai-sales-agent',
     icon: 'Headphones'
   },
@@ -49,7 +49,7 @@ const solutions: Solution[] = [
     id: 5,
     title: 'ИИ-ассистент для бизнеса',
     description: 'Персональный ИИ-помощник, обучаемый на корпоративных данных компании. Работает локально...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/db297af8-2ba5-4186-aa9e-5153d9c94090.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/3b3fea9c-807e-4bf7-bc5a-da5879fa630f.jpg',
     slug: 'ai-business-assistant',
     icon: 'BrainCircuit'
   },
@@ -57,7 +57,7 @@ const solutions: Solution[] = [
     id: 6,
     title: 'CRM-система',
     description: 'Система управления взаимоотношениями с клиентами. Автоматизирует продажи, маркетинг...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/316885c2-cbcc-4580-9218-c9f22f7090f1.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/7ec72035-f084-432f-a1d3-5d970bf03682.jpg',
     slug: 'crm-system',
     icon: 'Users'
   },
@@ -65,7 +65,7 @@ const solutions: Solution[] = [
     id: 7,
     title: 'Маркетплейс',
     description: 'Торговая площадка в интернете, где продавцы и покупатели совершают сделки. Полный цикл...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/b32a22ac-799b-4508-9a3b-6447b495f73f.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/d42133a0-ab6d-4996-a600-156b1ff3f01f.jpg',
     slug: 'marketplace',
     icon: 'ShoppingCart'
   },
@@ -73,7 +73,7 @@ const solutions: Solution[] = [
     id: 8,
     title: 'B2B-кабинет',
     description: 'Личный кабинет для корпоративных клиентов с расширенными возможностями: управление...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/43b225d9-8ba9-440f-8122-63af8c8ac9a0.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/fdc4e0ba-c244-46a3-a2b2-fb6cdd007635.jpg',
     slug: 'b2b-cabinet',
     icon: 'Building2'
   },
@@ -81,7 +81,7 @@ const solutions: Solution[] = [
     id: 9,
     title: 'Личный кабинет',
     description: 'Персонализированное пространство для пользователей с историей заказов, настройками...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/74053fad-827e-4080-a15b-ae7cad7aa5dc.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/2ceb642c-48fd-4ed6-a3a3-8d94fe6bad27.jpg',
     slug: 'personal-cabinet',
     icon: 'UserCircle'
   },
@@ -89,7 +89,7 @@ const solutions: Solution[] = [
     id: 10,
     title: 'Интеграция с 1C',
     description: 'Синхронизация данных между вашим сайтом и системой учета 1C. Автоматический обмен...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/5cd31747-a96c-44de-8c59-bd4609e9a033.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/3850dffa-def7-48d2-9a64-73ddab220cd1.jpg',
     slug: '1c-integration',
     icon: 'Link'
   },
@@ -97,7 +97,7 @@ const solutions: Solution[] = [
     id: 11,
     title: 'Мобильное приложение',
     description: 'Нативное приложение для iOS и Android с доступом к функциям сайта, push-уведомлениями...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/3ccf1686-a2e9-4a00-8c82-0b8a100dd9a8.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/158023fa-4e5a-4e63-95f4-d97a501c646e.jpg',
     slug: 'mobile-app',
     icon: 'Smartphone'
   },
@@ -105,7 +105,7 @@ const solutions: Solution[] = [
     id: 12,
     title: 'Аналитика и BI',
     description: 'Система бизнес-аналитики с интерактивными дашбордами, отчетами и прогнозированием...',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/a50083d7-f07b-4b79-8a8f-40ea7d50fa7e.jpg',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/b99927ef-f780-4d51-9ee8-3b7c102722f1.jpg',
     slug: 'analytics-bi',
     icon: 'BarChart3'
   }
@@ -116,7 +116,7 @@ const Solutions = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24 sm:pt-28 pb-16 sm:pb-20">
+      <main className="pt-24 sm:pt-28 pb-16 sm:pb-20 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           <div className="text-center mb-12 sm:mb-16">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
@@ -131,18 +131,18 @@ const Solutions = () => {
             {solutions.map((solution, index) => (
               <div
                 key={solution.id}
-                className="group bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary transition-all duration-300 flex flex-col animate-in fade-in slide-in-from-bottom-4"
-                style={{ animationDelay: `${index * 50}ms` }}
+                className="group bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary hover:shadow-[0_0_30px_rgba(23,169,163,0.3)] transition-all duration-500 flex flex-col opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
+                style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-56 overflow-hidden backdrop-blur-sm">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 animate-pulse"></div>
                   <img
                     src={solution.image}
                     alt={solution.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out mix-blend-multiply"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4">
-                    <div className="w-10 h-10 bg-white/95 rounded-lg flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-10 h-10 bg-white/95 backdrop-blur-sm rounded-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                       <Icon name={solution.icon as any} size={20} className="text-primary" />
                     </div>
                   </div>
@@ -156,7 +156,7 @@ const Solutions = () => {
                     {solution.description}
                   </p>
                   <Button 
-                    className="w-full bg-primary hover:bg-primary/90 transition-all duration-300"
+                    className="w-full bg-primary hover:bg-primary/90 transition-all duration-300 group-hover:scale-105"
                     asChild
                   >
                     <a href={`/solutions/${solution.slug}`}>
