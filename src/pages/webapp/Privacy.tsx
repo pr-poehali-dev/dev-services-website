@@ -6,25 +6,26 @@ const Privacy = () => {
   return (
     <div className="min-h-screen bg-background">
       <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2">
-            <Icon name="Sparkles" className="text-primary" size={28} />
-            <span className="text-2xl font-bold text-foreground">
+            <Icon name="Sparkles" className="text-primary" size={24} />
+            <span className="text-xl sm:text-2xl font-bold text-foreground">
               Scalper.io
             </span>
           </Link>
           <Link to="/">
-            <Button variant="ghost" size="sm">
-              <Icon name="ArrowLeft" className="mr-2" size={16} />
-              На главную
+            <Button variant="ghost" size="sm" className="text-sm sm:text-base">
+              <Icon name="ArrowLeft" className="mr-1 sm:mr-2" size={16} />
+              <span className="hidden xs:inline">На главную</span>
+              <span className="xs:hidden">Назад</span>
             </Button>
           </Link>
         </div>
       </nav>
 
-      <div className="pt-32 pb-20 px-6">
+      <div className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">Политика конфиденциальности</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">Политика конфиденциальности</h1>
           
           <div className="prose prose-lg max-w-none space-y-8">
             <section>
