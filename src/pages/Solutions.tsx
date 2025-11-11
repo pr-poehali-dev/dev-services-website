@@ -168,6 +168,8 @@ const Solutions = () => {
                   <img
                     src={solution.image}
                     alt={solution.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out mix-blend-multiply"
                   />
                   <div className="absolute bottom-4 left-4">
@@ -185,7 +187,7 @@ const Solutions = () => {
                     {solution.description}
                   </p>
                   <Button 
-                    className="w-full bg-primary hover:bg-primary/90 transition-all duration-300 group-hover:scale-105"
+                    className="w-full bg-primary hover:bg-primary/90 active:scale-95 transition-all duration-300"
                     asChild
                   >
                     <a href={`/solutions/${solution.slug}`}>
@@ -205,7 +207,7 @@ const Solutions = () => {
             <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
               Мы разработаем индивидуальное решение под ваши задачи и бизнес-процессы
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 active:scale-95 transition-transform" asChild>
               <a href="/become-client">
                 Обсудить проект
                 <Icon name="MessageSquare" size={18} className="ml-2" />

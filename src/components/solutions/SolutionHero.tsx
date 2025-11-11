@@ -14,6 +14,8 @@ const SolutionHero = ({ solution }: SolutionHeroProps) => {
         <img
           src={solution.image}
           alt={solution.title}
+          loading="eager"
+          fetchpriority="high"
           className="w-full h-full object-cover mix-blend-multiply"
         />
       </div>
@@ -31,14 +33,14 @@ const SolutionHero = ({ solution }: SolutionHeroProps) => {
           <p className="text-base sm:text-xl text-muted-foreground mb-6">
             {solution.subtitle}
           </p>
-          <div className="flex flex-wrap gap-3 sm:gap-4">
-            <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 active:scale-95 transition-transform w-full sm:w-auto" asChild>
               <a href="/become-client">
                 Заказать разработку
                 <Icon name="ArrowRight" size={18} className="ml-2" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outline" className="active:scale-95 transition-transform w-full sm:w-auto" asChild>
               <a href="https://t.me/Pyatyzhkin_Sergey" target="_blank" rel="noopener noreferrer">
                 Связаться с нами
               </a>

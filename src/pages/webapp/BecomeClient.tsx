@@ -23,8 +23,11 @@ const BecomeClient = () => {
     agreeToPolicy: false
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     const fullMessage = `=== ИНФОРМАЦИЯ О КОМПАНИИ ===
 Компания: ${formData.company}
@@ -63,9 +66,11 @@ ${formData.challenges}`;
         window.location.href = '/';
       } else {
         alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+        setIsSubmitting(false);
       }
     } catch (error) {
       alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+      setIsSubmitting(false);
     }
   };
 
@@ -300,11 +305,20 @@ ${formData.challenges}`;
 
                   <Button 
                     type="submit" 
-                    className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
-                    disabled={!formData.agreeToPolicy}
+                    className="w-full bg-primary hover:bg-primary/90 active:scale-95 transition-transform text-base sm:text-lg py-5 sm:py-6"
+                    disabled={!formData.agreeToPolicy || isSubmitting}
                   >
-                    <Icon name="Send" className="mr-2" size={20} />
-                    Отправить анкету
+                    {isSubmitting ? (
+                      <>
+                        <Icon name="Loader2" className="mr-2 animate-spin" size={18} />
+                        Отправка...
+                      </>
+                    ) : (
+                      <>
+                        <Icon name="Send" className="mr-2" size={18} />
+                        Отправить анкету
+                      </>
+                    )}
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center mt-4">

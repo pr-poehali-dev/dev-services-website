@@ -23,20 +23,20 @@ const HeroSection = () => {
           Работаем как подрядчики и субподрядчики с компаниями любого масштаба.
         </p>
         
-        <div className="flex flex-wrap justify-center gap-4 animate-fade-in">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8" asChild>
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 animate-fade-in px-4">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 active:scale-95 transition-transform text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto" asChild>
             <a href="https://t.me/scalper_io_public" target="_blank" rel="noopener noreferrer">
-              <Icon name="Rocket" className="mr-2" size={20} />
+              <Icon name="Rocket" className="mr-2" size={18} />
               Начать проект
             </a>
           </Button>
           <Button 
             size="lg" 
             variant="outline" 
-            className="text-lg px-8 border-primary/30 hover:bg-primary/10"
+            className="text-base sm:text-lg px-6 sm:px-8 border-primary/30 hover:bg-primary/10 active:scale-95 transition-transform w-full sm:w-auto"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            <Icon name="Mail" className="mr-2" size={20} />
+            <Icon name="Mail" className="mr-2" size={18} />
             Обсудить задачу
           </Button>
         </div>
