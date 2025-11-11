@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
+import SEOHead from '@/components/SEOHead';
 
 interface SolutionData {
   title: string;
@@ -267,6 +268,12 @@ const SolutionDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title={`${solution.title} — ${solution.subtitle} | Scalper.io`}
+        description={solution.description}
+        image={solution.image}
+        url={`/solutions/${slug}`}
+      />
       <Navbar />
       
       <main className="pt-20 sm:pt-24 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">

@@ -29,7 +29,6 @@ const Navbar = () => {
             <a href="/solutions" className="relative text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 font-medium after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Готовые решения</a>
             <a href="/#tech" className="relative text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 font-medium after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Технологии</a>
             <a href="/#team" className="relative text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 font-medium after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Команда</a>
-            <a href="/portfolio" className="relative text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 font-medium after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Портфолио</a>
             <a href="/partners" className="relative text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 font-medium after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Партнёры</a>
             <a href="/#faq" className="relative text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 font-medium after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">FAQ</a>
             <Button className="bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30" asChild>
@@ -75,13 +74,6 @@ const Navbar = () => {
               onClick={closeMobileMenu}
             >
               Команда
-            </a>
-            <a 
-              href="/portfolio" 
-              className="block text-foreground/80 hover:text-primary transition-colors py-2"
-              onClick={closeMobileMenu}
-            >
-              Портфолио
             </a>
             <a 
               href="/partners" 

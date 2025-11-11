@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
+import SEOHead from '@/components/SEOHead';
 
 interface Solution {
   id: number;
@@ -114,6 +115,12 @@ const solutions: Solution[] = [
 const Solutions = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Готовые решения для бизнеса — Scalper.io"
+        description="Проверенные IT-решения для автоматизации бизнеса: веб-скраперы, ИИ-чат-боты, CRM-системы, маркетплейсы. 12 готовых продуктов под ключ."
+        image="https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/48626a96-fe8a-4815-ada9-d0a0b323e0b7.jpg"
+        url="/solutions"
+      />
       <Navbar />
       
       <main className="pt-24 sm:pt-28 pb-16 sm:pb-20 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">

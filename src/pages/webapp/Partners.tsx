@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
+import SEOHead from '@/components/SEOHead';
 
 const Partners = () => {
   const positions = [
@@ -78,6 +79,12 @@ const Partners = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Партнёрство и вакансии — Работа в Scalper.io"
+        description="Присоединяйтесь к команде Scalper.io. Ищем ML/AI разработчиков, фулстек и фронтенд разработчиков. Удаленная работа, интересные проекты."
+        image="https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/081772e3-da50-4f0c-a3fd-a6d4c39e9571.jpg"
+        url="/partners"
+      />
       <Navbar />
       
       {/* Hero Section */}

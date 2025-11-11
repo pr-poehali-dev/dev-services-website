@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 import { Link } from 'react-router-dom';
+import SEOHead from '@/components/SEOHead';
 
 const BecomeClient = () => {
   const [formData, setFormData] = useState({
@@ -88,6 +89,12 @@ ${formData.challenges}`;
         </div>
       </nav>
 
+      <SEOHead 
+        title="Стать клиентом — Заказать разработку | Scalper.io"
+        description="Оставьте заявку на разработку веб-приложения, мобильного приложения или AI-решения. Обсудим ваш проект и подготовим предложение."
+        image="https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/a4659815-5bea-44d8-8a57-56b1ae6cf67b.jpg"
+        url="/become-client"
+      />
       <div className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
