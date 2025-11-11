@@ -128,39 +128,40 @@ const Solutions = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {solutions.map((solution) => (
+            {solutions.map((solution, index) => (
               <div
                 key={solution.id}
-                className="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 flex flex-col"
+                className="group bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary transition-all duration-300 flex flex-col animate-in fade-in slide-in-from-bottom-4"
+                style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-muted/30 to-muted/10">
+                <div className="relative h-56 overflow-hidden">
                   <img
                     src={solution.image}
                     alt={solution.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4">
-                    <div className="w-10 h-10 bg-white/90 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-white/95 rounded-lg flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                       <Icon name={solution.icon as any} size={20} className="text-primary" />
                     </div>
                   </div>
                 </div>
 
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-foreground mb-3 min-h-[56px] flex items-center">
+                  <h3 className="text-xl font-bold text-foreground mb-3 min-h-[56px] flex items-center group-hover:text-primary transition-colors duration-300">
                     {solution.title}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-6 flex-grow min-h-[60px]">
                     {solution.description}
                   </p>
                   <Button 
-                    className="w-full bg-primary hover:bg-primary/90"
+                    className="w-full bg-primary hover:bg-primary/90 transition-all duration-300"
                     asChild
                   >
                     <a href={`/solutions/${solution.slug}`}>
                       Подробнее
-                      <Icon name="ArrowRight" size={16} className="ml-2" />
+                      <Icon name="ArrowRight" size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </a>
                   </Button>
                 </div>

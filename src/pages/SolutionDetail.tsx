@@ -269,33 +269,42 @@ const SolutionDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24 sm:pt-28">
+      <main className="pt-20 sm:pt-24 animate-in fade-in duration-500">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl py-8">
+          <Button variant="ghost" asChild className="mb-6">
+            <a href="/solutions" className="gap-2">
+              <Icon name="ArrowLeft" size={18} />
+              Все решения
+            </a>
+          </Button>
+        </div>
+
         <div 
-          className="relative h-[400px] sm:h-[500px] bg-cover bg-center"
+          className="relative h-[300px] sm:h-[400px] bg-cover bg-center"
           style={{ backgroundImage: `url(${solution.image})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl h-full flex items-center relative z-10">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center">
-                  <Icon name={solution.icon as any} size={28} className="text-white" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary rounded-xl flex items-center justify-center">
+                  <Icon name={solution.icon as any} size={24} className="text-white" />
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
                   {solution.title}
                 </h1>
               </div>
-              <p className="text-xl sm:text-2xl text-white/90 mb-6">
+              <p className="text-base sm:text-xl text-muted-foreground mb-6">
                 {solution.subtitle}
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
                   <a href="/become-client">
                     Заказать разработку
                     <Icon name="ArrowRight" size={18} className="ml-2" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20" asChild>
+                <Button size="lg" variant="outline" asChild>
                   <a href="/#faq">
                     Задать вопрос
                   </a>
@@ -305,7 +314,7 @@ const SolutionDetail = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl py-16 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl py-12 sm:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="lg:col-span-2">
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
@@ -376,24 +385,11 @@ const SolutionDetail = () => {
               <div className="sticky top-28 space-y-6">
                 <div className="bg-card border border-border rounded-xl p-6">
                   <h3 className="text-xl font-bold text-foreground mb-4">
-                    Стоимость и сроки
+                    Начать проект
                   </h3>
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-3">
-                      <Icon name="Wallet" size={20} className="text-primary" />
-                      <div>
-                        <p className="text-sm text-muted-foreground">Стоимость</p>
-                        <p className="text-lg font-semibold text-foreground">{solution.price}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Icon name="Clock" size={20} className="text-primary" />
-                      <div>
-                        <p className="text-sm text-muted-foreground">Срок разработки</p>
-                        <p className="text-lg font-semibold text-foreground">{solution.timeline}</p>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-sm text-muted-foreground mb-6">
+                    Оставьте заявку, и мы обсудим детали вашего проекта, сроки и стоимость разработки
+                  </p>
                   <Button className="w-full bg-primary hover:bg-primary/90" size="lg" asChild>
                     <a href="/become-client">
                       Оставить заявку
@@ -416,14 +412,20 @@ const SolutionDetail = () => {
                   </Button>
                 </div>
 
-                <div className="bg-card border border-border rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-foreground mb-3">
-                    Другие решения
-                  </h3>
-                  <Button variant="ghost" className="w-full justify-start" asChild>
+                <div className="bg-gradient-to-br from-muted/50 to-muted/20 rounded-xl p-6 border border-border">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Icon name="Lightbulb" size={20} className="text-primary" />
+                    <h3 className="text-lg font-bold text-foreground">
+                      Полезно знать
+                    </h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Посмотрите другие готовые решения — возможно, они дополнят ваш проект
+                  </p>
+                  <Button variant="outline" className="w-full mt-4" asChild>
                     <a href="/solutions">
-                      <Icon name="ArrowLeft" size={18} className="mr-2" />
-                      Все решения
+                      <Icon name="Grid3x3" size={18} className="mr-2" />
+                      Смотреть каталог
                     </a>
                   </Button>
                 </div>
