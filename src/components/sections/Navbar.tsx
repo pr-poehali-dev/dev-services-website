@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex md:grid md:grid-cols-3 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Icon name="Sparkles" className="text-primary" size={20} sm:size={24} />
+            <Icon name="Sparkles" className="text-primary w-5 h-5 sm:w-6 sm:h-6" />
             <span className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">
               Scalper.io
             </span>
