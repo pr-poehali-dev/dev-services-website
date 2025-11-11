@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full bg-background/80 backdrop-blur-lg border-b border-border z-50">
       <div className="container mx-auto px-4 sm:px-6 py-4">
-        <div className="flex justify-between items-center">
+        <div className="grid grid-cols-3 items-center">
           <div className="flex items-center gap-2">
             <Icon name="Sparkles" className="text-primary" size={24} />
             <span className="text-xl sm:text-2xl font-bold text-foreground">
@@ -24,7 +24,7 @@ const Navbar = () => {
             </span>
           </div>
 
-          <div className="hidden md:flex gap-4 lg:gap-6 items-center">
+          <div className="hidden md:flex justify-center items-center gap-8">
             <a 
               href="/#services" 
               className="relative text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 font-medium whitespace-nowrap after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
@@ -61,18 +61,20 @@ const Navbar = () => {
             >
               FAQ
             </a>
-            <Button className="bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 whitespace-nowrap" asChild>
-              <a href="/become-client">Стать клиентом</a>
-            </Button>
           </div>
 
-          <button
-            className="md:hidden text-foreground p-2"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-          >
-            <Icon name={mobileMenuOpen ? "X" : "Menu"} size={24} />
-          </button>
+          <div className="flex justify-end items-center">
+            <Button className="hidden md:flex bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 whitespace-nowrap" asChild>
+              <a href="/become-client">Стать клиентом</a>
+            </Button>
+            <button
+              className="md:hidden text-foreground p-2"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+            >
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={24} />
+            </button>
+          </div>
         </div>
 
         {mobileMenuOpen && (
