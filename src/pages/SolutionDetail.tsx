@@ -6,123 +6,253 @@ import Footer from '@/components/sections/Footer';
 
 interface SolutionData {
   title: string;
+  subtitle: string;
   description: string;
-  fullDescription: string;
   image: string;
   icon: string;
-  benefits: string[];
+  benefits: Array<{ title: string; description: string }>;
   features: string[];
-  useCases: string[];
+  process: Array<{ step: number; title: string; description: string }>;
+  price: string;
+  timeline: string;
 }
 
 const solutionsData: Record<string, SolutionData> = {
   'web-scraper': {
     title: 'Веб-скрапер',
-    description: 'Автоматизированный инструмент для сбора контактных данных и лидов с веб-сайтов.',
-    fullDescription: 'Веб-скрапер — это мощный инструмент автоматизации, который позволяет собирать структурированные данные с веб-сайтов без ручного копирования. Наше решение помогает компаниям автоматизировать сбор лидов, мониторинг конкурентов и анализ рынка.',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/de3f3ccc-b407-4ff1-80e4-f6049d38b9c8.jpg',
+    subtitle: 'Автоматизированный сбор данных с веб-сайтов',
+    description: 'Веб-скрапер — это мощный инструмент для автоматического сбора структурированных данных с веб-сайтов. Решение позволяет собирать контактные данные, мониторить цены конкурентов, агрегировать информацию о товарах и услугах без ручного копирования.',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/c1efd045-a032-4033-8f0e-11308d48c83d.jpg',
     icon: 'Globe',
     benefits: [
-      'Экономия времени на сборе данных до 95%',
-      'Повышение эффективности отдела продаж',
-      'Автоматический мониторинг конкурентов',
-      'Сбор актуальных контактов для холодных продаж'
+      {
+        title: 'Экономия времени',
+        description: 'Автоматизация сбора данных экономит до 95% времени по сравнению с ручной работой'
+      },
+      {
+        title: 'Точность данных',
+        description: 'Исключение человеческого фактора и ошибок при копировании информации'
+      },
+      {
+        title: 'Масштабируемость',
+        description: 'Возможность обрабатывать тысячи страниц в день без увеличения штата'
+      },
+      {
+        title: 'Актуальность',
+        description: 'Автоматическое обновление данных по расписанию для всегда свежей информации'
+      }
     ],
     features: [
-      'Сбор email, телефонов, соцсетей',
-      'Экспорт в Excel, CSV, CRM',
-      'Планировщик задач',
-      'Обход защиты от ботов',
-      'Прокси-серверы',
-      'API для интеграций'
+      'Сбор email-адресов, телефонов и контактов из социальных сетей',
+      'Мониторинг цен конкурентов и автоматические уведомления',
+      'Экспорт данных в Excel, CSV, JSON или прямая загрузка в CRM',
+      'Обход защиты от ботов и капчи',
+      'Работа через прокси-серверы для анонимности',
+      'Планировщик задач для регулярного сбора данных',
+      'API для интеграции с вашими системами',
+      'Фильтрация и валидация собранных данных'
     ],
-    useCases: [
-      'B2B продажи: сбор контактов компаний',
-      'Рекрутинг: поиск кандидатов',
-      'Маркетинг: анализ конкурентов',
-      'E-commerce: мониторинг цен'
-    ]
+    process: [
+      {
+        step: 1,
+        title: 'Анализ требований',
+        description: 'Определяем источники данных, структуру информации и частоту обновления'
+      },
+      {
+        step: 2,
+        title: 'Разработка парсера',
+        description: 'Создаём алгоритм сбора данных с учётом защиты сайтов-источников'
+      },
+      {
+        step: 3,
+        title: 'Тестирование',
+        description: 'Проверяем качество и точность собранных данных на тестовой выборке'
+      },
+      {
+        step: 4,
+        title: 'Запуск и мониторинг',
+        description: 'Настраиваем автоматический сбор и отслеживаем стабильность работы'
+      }
+    ],
+    price: 'от 150 000 ₽',
+    timeline: '2-4 недели'
   },
   'ai-chatbot': {
     title: 'Чат-бот с ИИ',
-    description: 'Интеллектуальный чат-бот для мессенджеров с возможностью обучения.',
-    fullDescription: 'ИИ-чат-бот нового поколения, который понимает контекст беседы, обучается на ваших данных и обеспечивает персонализированное общение с клиентами. Интегрируется с популярными мессенджерами и CRM-системами.',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/2725a30d-dcd4-418a-935a-950a1385859d.jpg',
+    subtitle: 'Интеллектуальный помощник для автоматизации общения',
+    description: 'ИИ-чат-бот нового поколения с глубоким пониманием контекста и возможностью обучения на ваших данных. Обеспечивает естественное общение с клиентами в мессенджерах и на сайте, автоматизирует поддержку и повышает конверсию.',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/534480ed-ce94-46a4-8722-c5ef2b0c33a6.jpg',
     icon: 'MessageSquare',
     benefits: [
-      'Обработка запросов клиентов 24/7',
-      'Снижение нагрузки на поддержку до 70%',
-      'Мгновенные ответы на типовые вопросы',
-      'Повышение удовлетворенности клиентов'
+      {
+        title: 'Доступность 24/7',
+        description: 'Чат-бот отвечает на вопросы клиентов круглосуточно без выходных'
+      },
+      {
+        title: 'Снижение нагрузки',
+        description: 'Освобождает до 70% времени операторов от типовых вопросов'
+      },
+      {
+        title: 'Повышение конверсии',
+        description: 'Мгновенные ответы увеличивают вероятность покупки на 30%'
+      },
+      {
+        title: 'Персонализация',
+        description: 'Запоминает историю диалогов и предпочтения каждого клиента'
+      }
     ],
     features: [
-      'Понимание естественного языка',
-      'Обучение на корпоративных данных',
-      'Интеграция с Telegram, WhatsApp, VK',
-      'Передача диалога оператору',
-      'Аналитика и отчеты',
-      'Мультиязычность'
+      'Понимание естественного языка и контекста беседы',
+      'Обучение на корпоративных данных и документации',
+      'Интеграция с Telegram, WhatsApp, VK, Facebook Messenger',
+      'Автоматическая передача диалога оператору при необходимости',
+      'Сбор обратной связи и оценка удовлетворённости',
+      'Аналитика диалогов и отчёты по популярным вопросам',
+      'Поддержка множества языков',
+      'Работа с изображениями и документами'
     ],
-    useCases: [
-      'Поддержка клиентов: ответы на FAQ',
-      'Продажи: квалификация лидов',
-      'HR: подбор персонала',
-      'Сервис: запись на прием'
-    ]
+    process: [
+      {
+        step: 1,
+        title: 'Проектирование логики',
+        description: 'Анализируем типовые сценарии и разрабатываем древо диалогов'
+      },
+      {
+        step: 2,
+        title: 'Обучение ИИ',
+        description: 'Тренируем модель на ваших данных и настраиваем понимание контекста'
+      },
+      {
+        step: 3,
+        title: 'Интеграция',
+        description: 'Подключаем бота к мессенджерам и вашим системам (CRM, базы знаний)'
+      },
+      {
+        step: 4,
+        title: 'Оптимизация',
+        description: 'Анализируем реальные диалоги и улучшаем ответы бота'
+      }
+    ],
+    price: 'от 250 000 ₽',
+    timeline: '3-6 недель'
   },
   'ai-lead-generator': {
     title: 'Лидогенератор на базе ИИ',
-    description: 'Система автоматической генерации качественных лидов с использованием ИИ.',
-    fullDescription: 'Интеллектуальная система генерации лидов, которая использует машинное обучение для поиска и квалификации потенциальных клиентов. Анализирует поведение пользователей и автоматически выявляет горячие лиды.',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/9da90696-31df-46d2-9172-94aee71d874c.jpg',
+    subtitle: 'Умная система для привлечения клиентов',
+    description: 'Интеллектуальная система генерации и квалификации лидов с использованием машинного обучения. Анализирует поведение посетителей, предсказывает намерения и автоматически выявляет горячих клиентов для отдела продаж.',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/17ed36b2-9523-4888-b2a5-99ef8aa506f0.jpg',
     icon: 'Target',
     benefits: [
-      'Увеличение количества лидов на 200%+',
-      'Повышение качества лидов',
-      'Автоматическая квалификация',
-      'ROI от маркетинга увеличивается в 3 раза'
+      {
+        title: 'Рост качества лидов',
+        description: 'ИИ отфильтровывает нецелевую аудиторию и фокусируется на готовых покупателях'
+      },
+      {
+        title: 'Увеличение конверсии',
+        description: 'Персонализированные предложения повышают конверсию в 2-3 раза'
+      },
+      {
+        title: 'Автоматизация',
+        description: 'Система работает автономно, освобождая маркетологов для творческих задач'
+      },
+      {
+        title: 'Предиктивная аналитика',
+        description: 'Прогнозирование поведения клиентов и вероятности покупки'
+      }
     ],
     features: [
-      'Скоринг лидов на основе ML',
-      'Поведенческий анализ',
-      'Персонализированные предложения',
-      'A/B тестирование',
-      'Интеграция с CRM',
-      'Предиктивная аналитика'
+      'Скоринг лидов на основе машинного обучения',
+      'Анализ поведения посетителей на сайте',
+      'Сегментация аудитории по намерениям',
+      'Персонализированные предложения для каждого сегмента',
+      'A/B тестирование форм и лид-магнитов',
+      'Интеграция с CRM и email-маркетингом',
+      'Автоматические цепочки писем (drip-кампании)',
+      'Предсказание оттока клиентов'
     ],
-    useCases: [
-      'E-commerce: увеличение продаж',
-      'B2B: автоматизация продаж',
-      'Недвижимость: квалификация покупателей',
-      'Финансы: скоринг заемщиков'
-    ]
+    process: [
+      {
+        step: 1,
+        title: 'Сбор данных',
+        description: 'Подключаем систему к сайту и интегрируем с аналитикой'
+      },
+      {
+        step: 2,
+        title: 'Обучение модели',
+        description: 'ИИ анализирует историю конверсий и находит закономерности'
+      },
+      {
+        step: 3,
+        title: 'Настройка сценариев',
+        description: 'Создаём автоматические воронки для разных сегментов'
+      },
+      {
+        step: 4,
+        title: 'Оптимизация',
+        description: 'Система самообучается и улучшает результаты со временем'
+      }
+    ],
+    price: 'от 300 000 ₽',
+    timeline: '4-8 недель'
   },
   'crm-system': {
     title: 'CRM-система',
-    description: 'Система управления взаимоотношениями с клиентами.',
-    fullDescription: 'Комплексная CRM-система для автоматизации продаж, маркетинга и сервисного обслуживания. Централизует все данные о клиентах и упрощает работу команды.',
-    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/9da90696-31df-46d2-9172-94aee71d874c.jpg',
+    subtitle: 'Управление продажами и клиентами',
+    description: 'Комплексная CRM-система для автоматизации продаж, маркетинга и обслуживания клиентов. Централизует всю информацию о клиентах, контролирует работу менеджеров и повышает эффективность отдела продаж.',
+    image: 'https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/316885c2-cbcc-4580-9218-c9f22f7090f1.jpg',
     icon: 'Users',
     benefits: [
-      'Увеличение продаж на 30%+',
-      'Контроль работы менеджеров',
-      'Сокращение цикла сделки',
-      'Повышение лояльности клиентов'
+      {
+        title: 'Рост продаж',
+        description: 'Структурированная работа с клиентами увеличивает продажи на 30%+'
+      },
+      {
+        title: 'Контроль процессов',
+        description: 'Полная прозрачность работы менеджеров и состояния сделок'
+      },
+      {
+        title: 'Сокращение цикла сделки',
+        description: 'Автоматизация рутины ускоряет продажи в 1,5-2 раза'
+      },
+      {
+        title: 'Удержание клиентов',
+        description: 'История взаимодействий помогает строить долгосрочные отношения'
+      }
     ],
     features: [
-      'Воронка продаж',
-      'Управление задачами',
-      'Email и SMS рассылки',
-      'Интеграция с телефонией',
-      'Документооборот',
-      'Аналитика и KPI'
+      'Воронка продаж с визуализацией этапов',
+      'Управление задачами и напоминаниями',
+      'Email и SMS рассылки с сегментацией',
+      'Интеграция с IP-телефонией',
+      'Автоматический документооборот',
+      'Аналитика и KPI менеджеров',
+      'Мобильное приложение для работы в полях',
+      'Интеграция с бухгалтерией и складом'
     ],
-    useCases: [
-      'Продажи: управление сделками',
-      'Маркетинг: email-кампании',
-      'Сервис: работа с обращениями',
-      'Руководство: контроль бизнеса'
-    ]
+    process: [
+      {
+        step: 1,
+        title: 'Анализ бизнес-процессов',
+        description: 'Изучаем текущие процессы продаж и выявляем точки роста'
+      },
+      {
+        step: 2,
+        title: 'Настройка системы',
+        description: 'Конфигурируем CRM под ваши бизнес-процессы и воронку'
+      },
+      {
+        step: 3,
+        title: 'Миграция данных',
+        description: 'Переносим клиентскую базу и историю из старых систем'
+      },
+      {
+        step: 4,
+        title: 'Обучение команды',
+        description: 'Проводим тренинги для менеджеров и руководителей'
+      }
+    ],
+    price: 'от 200 000 ₽',
+    timeline: '3-5 недель'
   }
 };
 
@@ -139,124 +269,166 @@ const SolutionDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24 sm:pt-28 pb-16 sm:pb-20">
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <div className="mb-8">
-            <Button variant="ghost" asChild>
-              <a href="/solutions" className="gap-2">
-                <Icon name="ArrowLeft" size={18} />
-                Назад к решениям
-              </a>
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
-            <div>
+      <main className="pt-24 sm:pt-28">
+        <div 
+          className="relative h-[400px] sm:h-[500px] bg-cover bg-center"
+          style={{ backgroundImage: `url(${solution.image})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl h-full flex items-center relative z-10">
+            <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <Icon name={solution.icon as any} size={24} className="text-primary" />
+                <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center">
+                  <Icon name={solution.icon as any} size={28} className="text-white" />
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
                   {solution.title}
                 </h1>
               </div>
-              <p className="text-lg sm:text-xl text-muted-foreground mb-6">
-                {solution.description}
+              <p className="text-xl sm:text-2xl text-white/90 mb-6">
+                {solution.subtitle}
               </p>
-              <p className="text-base text-foreground/80 mb-8 leading-relaxed">
-                {solution.fullDescription}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
                   <a href="/become-client">
-                    Заказать решение
+                    Заказать разработку
                     <Icon name="ArrowRight" size={18} className="ml-2" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20" asChild>
                   <a href="/#faq">
                     Задать вопрос
-                    <Icon name="MessageSquare" size={18} className="ml-2" />
                   </a>
                 </Button>
               </div>
             </div>
-
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={solution.image}
-                alt={solution.title}
-                className="w-full h-full object-cover min-h-[300px] sm:min-h-[400px]"
-              />
-            </div>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
-            <div className="bg-card border border-border rounded-xl p-6 sm:p-8">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                <Icon name="CheckCircle2" size={24} className="text-primary" />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
-                Преимущества
-              </h3>
-              <ul className="space-y-3">
-                {solution.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm sm:text-base text-foreground/80">
-                    <Icon name="Check" size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl py-16 sm:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <div className="lg:col-span-2">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
+                Описание решения
+              </h2>
+              <p className="text-base sm:text-lg text-foreground/80 leading-relaxed mb-8">
+                {solution.description}
+              </p>
 
-            <div className="bg-card border border-border rounded-xl p-6 sm:p-8">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                <Icon name="Zap" size={24} className="text-primary" />
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 sm:p-8 mb-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
+                  Ключевые преимущества
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {solution.benefits.map((benefit, index) => (
+                    <div key={index} className="flex gap-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <Icon name="Check" size={20} className="text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">
+                          {benefit.title}
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          {benefit.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
-                Возможности
+
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
+                Возможности системы
               </h3>
-              <ul className="space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
                 {solution.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm sm:text-base text-foreground/80">
-                    <Icon name="Check" size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
+                  <div key={index} className="flex items-start gap-3">
+                    <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm sm:text-base text-foreground/80">{feature}</span>
+                  </div>
                 ))}
-              </ul>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6 sm:p-8 md:col-span-2 lg:col-span-1">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                <Icon name="Briefcase" size={24} className="text-primary" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
-                Применение
-              </h3>
-              <ul className="space-y-3">
-                {solution.useCases.map((useCase, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm sm:text-base text-foreground/80">
-                    <Icon name="Check" size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                    <span>{useCase}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
 
-          <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 sm:p-12 border border-primary/20 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-              Готовы начать?
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Оставьте заявку, и наш специалист свяжется с вами для обсуждения деталей проекта
-            </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-              <a href="/become-client">
-                Оставить заявку
-                <Icon name="Send" size={18} className="ml-2" />
-              </a>
-            </Button>
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
+                Этапы разработки
+              </h3>
+              <div className="space-y-6">
+                {solution.process.map((step) => (
+                  <div key={step.step} className="flex gap-4 sm:gap-6">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                      <span className="text-lg font-bold text-primary">{step.step}</span>
+                    </div>
+                    <div className="flex-grow">
+                      <h4 className="text-lg font-semibold text-foreground mb-2">
+                        {step.title}
+                      </h4>
+                      <p className="text-sm sm:text-base text-muted-foreground">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-1">
+              <div className="sticky top-28 space-y-6">
+                <div className="bg-card border border-border rounded-xl p-6">
+                  <h3 className="text-xl font-bold text-foreground mb-4">
+                    Стоимость и сроки
+                  </h3>
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-center gap-3">
+                      <Icon name="Wallet" size={20} className="text-primary" />
+                      <div>
+                        <p className="text-sm text-muted-foreground">Стоимость</p>
+                        <p className="text-lg font-semibold text-foreground">{solution.price}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Icon name="Clock" size={20} className="text-primary" />
+                      <div>
+                        <p className="text-sm text-muted-foreground">Срок разработки</p>
+                        <p className="text-lg font-semibold text-foreground">{solution.timeline}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <Button className="w-full bg-primary hover:bg-primary/90" size="lg" asChild>
+                    <a href="/become-client">
+                      Оставить заявку
+                      <Icon name="Send" size={18} className="ml-2" />
+                    </a>
+                  </Button>
+                </div>
+
+                <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-6 border border-primary/20">
+                  <h3 className="text-lg font-bold text-foreground mb-3">
+                    Нужна консультация?
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Наши эксперты помогут выбрать оптимальное решение для вашего бизнеса
+                  </p>
+                  <Button variant="outline" className="w-full" asChild>
+                    <a href="/#faq">
+                      Связаться с нами
+                    </a>
+                  </Button>
+                </div>
+
+                <div className="bg-card border border-border rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-foreground mb-3">
+                    Другие решения
+                  </h3>
+                  <Button variant="ghost" className="w-full justify-start" asChild>
+                    <a href="/solutions">
+                      <Icon name="ArrowLeft" size={18} className="mr-2" />
+                      Все решения
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
