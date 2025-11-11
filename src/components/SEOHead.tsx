@@ -5,9 +5,11 @@ interface SEOHeadProps {
   description: string;
   image?: string;
   url?: string;
+  keywords?: string;
+  schema?: any;
 }
 
-const SEOHead = ({ title, description, image, url }: SEOHeadProps) => {
+const SEOHead = ({ title, description, image, url, keywords, schema }: SEOHeadProps) => {
   useEffect(() => {
     const baseUrl = 'https://scalperio.ru';
     const defaultImage = 'https://cdn.poehali.dev/files/3d8f4275-6cad-4c16-a943-7b55dbec8faa.png';
@@ -23,11 +25,17 @@ const SEOHead = ({ title, description, image, url }: SEOHeadProps) => {
       { property: 'og:image', content: ogImage },
       { property: 'og:image:secure_url', content: ogImage },
       { property: 'og:url', content: ogUrl },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: ogImage },
       { name: 'description', content: description }
     ];
+
+    if (keywords) {
+      metaTags.push({ name: 'keywords', content: keywords });
+    }
 
     metaTags.forEach(({ property, name, content }) => {
       let meta = property 
@@ -46,7 +54,30 @@ const SEOHead = ({ title, description, image, url }: SEOHeadProps) => {
       
       meta.setAttribute('content', content);
     });
-  }, [title, description, image, url]);
+
+    if (schema) {
+      const existingSchema = document.querySelector('script[data-dynamic-schema="true"]');
+      if (existingSchema) {
+        existingSchema.remove();
+      }
+
+      const schemaScript = document.createElement('script');
+      schemaScript.type = 'application/ld+json';
+      schemaScript.setAttribute('data-dynamic-schema', 'true');
+      schemaScript.textContent = JSON.stringify(schema);
+      document.head.appendChild(schemaScript);
+    }
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute('href', ogUrl);
+    } else {
+      const newCanonical = document.createElement('link');
+      newCanonical.rel = 'canonical';
+      newCanonical.href = ogUrl;
+      document.head.appendChild(newCanonical);
+    }
+  }, [title, description, image, url, keywords, schema]);
 
   return null;
 };

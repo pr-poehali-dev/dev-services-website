@@ -116,10 +116,32 @@ const Solutions = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
-        title="Готовые решения для бизнеса — Scalper.io"
-        description="Проверенные IT-решения для автоматизации бизнеса: веб-скраперы, ИИ-чат-боты, CRM-системы, маркетплейсы. 12 готовых продуктов под ключ."
+        title="Готовые IT-решения для бизнеса под ключ — Scalper.io"
+        description="⭐ Разработка готовых решений: веб-скраперы, ИИ-чат-боты, CRM-системы, маркетплейсы, личные кабинеты, мобильные приложения. 12 проверенных продуктов под ключ. Консультация 24/7."
         image="https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/48626a96-fe8a-4815-ada9-d0a0b323e0b7.jpg"
         url="/solutions"
+        keywords="готовые IT решения, разработка ПО под ключ, веб скрапер разработка, чат бот с ИИ, разработка CRM системы, маркетплейс разработка, личный кабинет разработка, B2B кабинет, интеграция 1С, мобильное приложение разработка, бизнес аналитика BI, лидогенератор ИИ"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Готовые IT-решения для бизнеса",
+          "description": "Каталог готовых решений для автоматизации бизнеса",
+          "url": "https://scalperio.ru/solutions",
+          "provider": {
+            "@type": "Organization",
+            "name": "Scalper.io",
+            "url": "https://scalperio.ru"
+          },
+          "numberOfItems": 12,
+          "itemListElement": solutions.map((solution, index) => ({
+            "@type": "Service",
+            "position": index + 1,
+            "name": solution.title,
+            "description": solution.description,
+            "url": `https://scalperio.ru/solutions/${solution.slug}`,
+            "image": solution.image
+          }))
+        }}
       />
       <Navbar />
       
