@@ -104,6 +104,11 @@ const Partners = () => {
             <img 
               src="https://cdn.poehali.dev/projects/9a06e4ed-8cca-48bd-ad24-fd25071007e8/files/eabe363c-f181-4a19-a2e1-ebc4723d198b.jpg"
               alt="Партнёрство" 
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              width="1200"
+              height="400"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
@@ -122,6 +127,10 @@ const Partners = () => {
                     <img 
                       src={position.image} 
                       alt={position.title}
+                      loading={index < 2 ? "eager" : "lazy"}
+                      decoding="async"
+                      width="600"
+                      height="320"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent md:from-transparent md:to-background/80" />

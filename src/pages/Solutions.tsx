@@ -163,14 +163,16 @@ const Solutions = () => {
                 className="group bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary hover:shadow-[0_0_30px_rgba(23,169,163,0.3)] transition-all duration-500 flex flex-col opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="relative h-56 overflow-hidden backdrop-blur-sm">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 animate-pulse"></div>
+                <div className="relative h-56 overflow-hidden bg-primary/5">
                   <img
                     src={solution.image}
                     alt={solution.title}
-                    loading="lazy"
+                    loading={index < 6 ? "eager" : "lazy"}
                     decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out mix-blend-multiply"
+                    fetchPriority={index < 3 ? "high" : "auto"}
+                    width="400"
+                    height="224"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute bottom-4 left-4">
                     <div className="w-10 h-10 bg-white/95 backdrop-blur-sm rounded-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
