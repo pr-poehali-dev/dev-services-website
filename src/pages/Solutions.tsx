@@ -168,10 +168,6 @@ const Solutions = () => {
                     src={solution.image}
                     alt={solution.title}
                     loading={index < 6 ? "eager" : "lazy"}
-                    decoding="async"
-                    fetchpriority={index < 3 ? "high" : "auto"}
-                    width="400"
-                    height="224"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute bottom-4 left-4">
