@@ -106,7 +106,7 @@ const Partners = () => {
               alt="Партнёрство" 
               loading="eager"
               decoding="async"
-              fetchPriority="high"
+              fetchpriority="high"
               width="1200"
               height="400"
               className="w-full h-full object-cover"
